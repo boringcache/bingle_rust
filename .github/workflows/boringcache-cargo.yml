@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   cold:
-    name: BoringCache Cargo ${{ matrix.case }} cold
+    name: BoringCache Cargo ${{ matrix.case }} seed
     if: github.repository_owner == 'boringcache' && github.ref == 'refs/heads/boringcache-validation'
     runs-on: ubuntu-24.04
     timeout-minutes: 90
@@ -112,7 +112,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
       with:
-        name: cargo-${{ matrix.case }}-cold
+        name: cargo-${{ matrix.case }}-seed
         path: |
           ${{ runner.temp }}/cargo-validation
           ${{ steps.cargo.outputs.evidence-path }}

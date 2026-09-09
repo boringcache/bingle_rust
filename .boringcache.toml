@@ -6,10 +6,10 @@ tag = "cargo-target"
 path = "target"
 
 [profiles.dependencies]
-entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-git-db"]
+entries = ["cargo-registry-cache", "cargo-registry-index"]
 
 [profiles.cargo]
-entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-git-db", "cargo-target"]
+entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-target"]
 
 [adapters.cargo]
 profiles = ["cargo"]
@@ -27,4 +27,4 @@ tag = "cargo-android-target"
 path = "/var/tmp/bingle_native_target"
 
 [profiles.android]
-entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-git-db", "android-target"]
+entries = ["cargo-registry-cache", "cargo-registry-index", "android-target"]
