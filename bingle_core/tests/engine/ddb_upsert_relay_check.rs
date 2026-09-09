@@ -195,6 +195,7 @@ pub fn test_ddb_upsert_relay_fails_on_blockchain_error() {
         token_key: Some("X-Algo-API-Token".to_string()),
         app_id: None,
         asset_id: None,
+        ..Default::default()
     };
 
     let api = DummyApi {

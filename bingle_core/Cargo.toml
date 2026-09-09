@@ -1,6 +1,6 @@
 [package]
 name = "bingle_core"
-version = "0.3.1"
+version = "0.3.3"
 edition = "2024"
 description = "Core library for Bingle: a peer-to-peer messaging engine with Algorand-based node registration and discovery."
 license = "MIT OR Apache-2.0"
@@ -21,8 +21,8 @@ crate-type = ["rlib"]
 
 [dependencies]
 # Core deps kept iOS-friendly; heavy platform-specific deps remain gated below.
-blockchain_ops = "0.7.1"
-algo_ops = "0.7.1"
+blockchain_ops = "0.7.7"
+algo_ops = "0.7.7"
 algonaut = "0.8.0"
 anyhow = "1"
 thiserror = "1"

@@ -48,9 +48,9 @@ dependencies = [
 
 [[package]]
 name = "algo_ops"
-version = "0.7.1"
+version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1a46f933d29c677f14334c817193563b1ae4aa6bcea698ec70eaa507692daf67"
+checksum = "dae1aed334acabe285d15f78cd777e6993891e03f8664815b7b138945096987f"
 dependencies = [
  "algonaut",
  "anyhow",
@@ -59,6 +59,7 @@ dependencies = [
  "data-encoding",
  "ed25519-dalek",
  "rand_core 0.6.4",
+ "reqwest 0.13.4",
  "serde",
  "serde_json",
  "sha2 0.10.9",
@@ -526,7 +527,7 @@ dependencies = [
 
 [[package]]
 name = "bingle_cli"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "algo_ops",
  "bingle_core",
@@ -546,7 +547,7 @@ dependencies = [
 
 [[package]]
 name = "bingle_core"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "algo_ops",
  "algonaut",
@@ -582,7 +583,7 @@ dependencies = [
 
 [[package]]
 name = "bingle_jsi"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "algo_ops",
  "bingle_core",
@@ -602,7 +603,7 @@ dependencies = [
 
 [[package]]
 name = "bingle_local"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "algo_ops",
  "anyhow",
@@ -621,7 +622,7 @@ dependencies = [
 
 [[package]]
 name = "bingle_test"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "algo_ops",
  "base64 0.21.7",
@@ -638,7 +639,7 @@ dependencies = [
 
 [[package]]
 name = "bingle_webserver"
-version = "0.3.1"
+version = "0.3.3"
 dependencies = [
  "algo_ops",
  "anyhow",
@@ -700,9 +701,9 @@ dependencies = [
 
 [[package]]
 name = "blockchain_ops"
-version = "0.7.1"
+version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9af6cd69715e6991d2b147ef18704adaec68fdc7a88971a6f50c4c8334680b83"
+checksum = "d8b4e6f2828c1e20a01cd7e1cfa1b61433785887945d3c0f3bcca5cf5e4231a2"
 dependencies = [
  "anyhow",
  "serde",
@@ -1832,7 +1833,7 @@ dependencies = [
  "libc",
  "percent-encoding",
  "pin-project-lite",
- "socket2 0.6.4",
+ "socket2 0.5.10",
  "system-configuration 0.7.0",
  "tokio",
  "tower-service",
@@ -2700,7 +2701,7 @@ dependencies = [
  "quinn-udp",
  "rustc-hash",
  "rustls",
- "socket2 0.6.4",
+ "socket2 0.5.10",
  "thiserror 2.0.18",
  "tokio",
  "tracing",
@@ -2738,7 +2739,7 @@ dependencies = [
  "cfg_aliases",
  "libc",
  "once_cell",
- "socket2 0.6.4",
+ "socket2 0.5.10",
  "tracing",
  "windows-sys 0.60.2",
 ]
@@ -3421,9 +3422,9 @@ checksum = "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba"
 
 [[package]]
 name = "sidewinder_ops"
-version = "0.7.1"
+version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8fd84efea5a172c7a276e77dfd3bc78a5c56c112f9a583527c12a21070f67210"
+checksum = "6add8cea9090f19adac2fc6bf96393e5e1773ba177f6f7bf70f3b4b8fbc27360"
 dependencies = [
  "algo_ops",
  "anyhow",
@@ -4521,7 +4522,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.61.2",
+ "windows-sys 0.48.0",
 ]
 
 [[package]]

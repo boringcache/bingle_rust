@@ -5,6 +5,8 @@ use std::net::SocketAddr;
 /// Describes the action to take on shutdown regarding static endpoint unregistration.
 /// Mirrors the ShutdownAction enum in bingle_cli.rs for testability.
 #[derive(Debug, PartialEq, Eq)]
+// Cold CLI action descriptor; see the note on the mirrored enum in main.rs.
+#[allow(clippy::large_enum_variant)]
 enum ShutdownAction {
     NoStaticIp,
     NoAppId,
@@ -147,6 +149,7 @@ pub fn unregister_includes_provider_config_and_asset_id() {
         token_key: None,
         app_id: Some(100),
         asset_id: Some(200),
+        ..Default::default()
     };
     opts.algo_provider_config = Some(config.clone());
     let action = resolve_shutdown_action(&opts, None);

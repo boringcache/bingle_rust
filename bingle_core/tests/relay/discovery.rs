@@ -17,6 +17,7 @@ fn discover_closure_returns_empty_not_panic_on_indexer_error() {
         token_key: None,
         app_id: Some(1),
         asset_id: None,
+        ..Default::default()
     };
 
     let discover = indexer_discover_closure(1, Some(cfg), None);

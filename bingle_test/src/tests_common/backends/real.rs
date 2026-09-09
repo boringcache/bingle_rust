@@ -23,6 +23,7 @@ impl TestAlgo for RealBackend {
                 token_key: Some("X-API-Key".to_string()),
                 app_id: None,
                 asset_id: None,
+                ..Default::default()
             })
         } else {
             None

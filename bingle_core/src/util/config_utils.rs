@@ -173,6 +173,10 @@ pub fn parse_node_file_with_ids(
             token_key: nf.token_key,
             app_id: nf.app_id,
             asset_id: nf.asset_id,
+            // Throttling/budget knobs are not expressed in the node file; take the
+            // algo_ops defaults (both `None`). `..Default::default()` also absorbs
+            // any further optional fields algo_ops adds without breaking this call.
+            ..Default::default()
         },
         nf.app_id,
         nf.asset_id,

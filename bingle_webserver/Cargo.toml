@@ -1,6 +1,6 @@
 [package]
 name = "bingle_webserver"
-version = "0.3.1"
+version = "0.3.3"
 edition = "2024"
 description = "HTTP/WebSocket server exposing the Bingle messaging engine over an axum-based API."
 license = "MIT OR Apache-2.0"
@@ -20,9 +20,9 @@ tower-http = { version = "0.5", features = ["cors"] }
 anyhow = "1"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-bingle_core = { path = "../bingle_core", version = "0.3.1" }
-algo_ops = "0.7.1"
-bingle_local = { path = "../bingle_local", version = "0.3.1" }
+bingle_core = { path = "../bingle_core", version = "0.3.3" }
+algo_ops = "0.7.7"
+bingle_local = { path = "../bingle_local", version = "0.3.3" }
 
 [dev-dependencies]
 bingle_test = { path = "../bingle_test" }

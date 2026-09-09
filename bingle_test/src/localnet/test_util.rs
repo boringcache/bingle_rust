@@ -83,6 +83,7 @@ pub fn localnet_config() -> AlgoChainConfig {
         token_key: Some("X-Algo-API-Token".to_string()),
         app_id: None,
         asset_id: None,
+        ..Default::default()
     }
 }
 

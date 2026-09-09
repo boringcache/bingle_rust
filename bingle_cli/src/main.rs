@@ -1985,6 +1985,10 @@ fn resolve_app_support(app_id: Option<u64>, successor_app: Option<u64>) -> AppSu
 
 /// Describes the action to take on shutdown regarding static endpoint unregistration.
 #[derive(Debug, PartialEq, Eq)]
+// `Unregister` carries an `AlgoChainConfig` (~200 bytes since algo_ops 0.7.5 added the
+// optional throttle/budget fields); this is a cold, single-use CLI action descriptor, so
+// the size difference across variants is irrelevant. Box the field only if it ever gets hot.
+#[allow(clippy::large_enum_variant)]
 enum ShutdownAction {
     /// No static IP was configured; nothing to unregister.
     NoStaticIp,
