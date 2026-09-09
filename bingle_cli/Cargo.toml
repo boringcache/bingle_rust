@@ -50,5 +50,13 @@ path = "tests/unit.rs"
 name = "integration"
 path = "tests/integration.rs"
 
+# `sidewinder_localnet` gates the store-and-forward end-to-end case in the `integration` suite (epic
+# #200, story #216): it needs a live `sw-node` (via scripts/e2e_sidewinder_localnet.sh) + algokit localnet
+# and does NOT skip when they are absent — it fails. Off by default, so the normal suites/CI don't run
+# it. Enable it explicitly:
+#   cargo test -p bingle_cli --features sidewinder_localnet --test integration -- --test-threads 1
+[features]
+sidewinder_localnet = []
+
 [lints]
 workspace = true
