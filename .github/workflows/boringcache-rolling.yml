@@ -9,7 +9,7 @@ name: BoringCache rolling
       series:
         description: Cache series shared by the seed, warm and rolling builds
         type: string
-        default: september-2026-sccache17
+        default: september-2026-rust
   push:
     branches:
     - boringcache-validation
@@ -40,14 +40,14 @@ jobs:
         - host
         - android
     env:
-      VALIDATION_SERIES: ${{ inputs.series || 'september-2026-sccache17' }}
+      VALIDATION_SERIES: ${{ inputs.series || 'september-2026-rust' }}
       VALIDATION_PROVIDER: ${{ matrix.provider }}
       VALIDATION_CASE: ${{ matrix.case }}
       VALIDATION_PHASE: commit
       CARGO_INCREMENTAL: '0'
       CARGO_TERM_COLOR: never
-      CC: sccache cc
-      CXX: sccache c++
+      CC: cc
+      CXX: c++
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       with:
