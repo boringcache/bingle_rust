@@ -2,7 +2,7 @@ workspace = "boringcache/bingle-rust"
 
 [entries.cargo-target]
 kind = "cargo-target"
-tag = "cargo-target"
+tag = "cargo-localnet-target"
 path = "target"
 
 [profiles.dependencies]
@@ -28,3 +28,11 @@ path = "/var/tmp/bingle_native_target"
 
 [profiles.android]
 entries = ["cargo-registry-cache", "cargo-registry-index", "android-target"]
+
+[entries.unit-target]
+kind = "cargo-target"
+tag = "cargo-unit-target"
+path = "target"
+
+[profiles.unit]
+entries = ["cargo-registry-cache", "cargo-registry-index", "unit-target"]

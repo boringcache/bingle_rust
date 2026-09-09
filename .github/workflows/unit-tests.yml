@@ -72,13 +72,13 @@ jobs:
       # break is reported as a failure (an "incomplete" run) that blocks merge.
       - name: Build unit tests
         run: >
-          boringcache cargo --${{ env.BORINGCACHE_CARGO_POLICY }} --skip-save test --no-run --locked
+          boringcache cargo --${{ env.BORINGCACHE_CARGO_POLICY }} --profile unit --skip-save test --no-run --locked
           -p bingle_core -p bingle_webserver -p bingle_local -p bingle_jsi
           --test unit
 
       - name: Run unit tests
         run: >
-          boringcache cargo --${{ env.BORINGCACHE_CARGO_POLICY }} --skip-restore nextest run --profile ci --no-fail-fast
+          boringcache cargo --${{ env.BORINGCACHE_CARGO_POLICY }} --profile unit --skip-restore nextest run --profile ci --no-fail-fast
           -p bingle_core -p bingle_webserver -p bingle_local -p bingle_jsi
           --test unit
 
