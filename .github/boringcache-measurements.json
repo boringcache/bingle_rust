@@ -1,0 +1,5666 @@
+[
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "cold",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102467809893,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102467809893",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:38:04Z",
+    "completed_at": "2026-09-09T12:42:06Z",
+    "job_seconds": 242.0,
+    "build_seconds": 190.623,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      190.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 191.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 8.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/BoringCache-host-cold",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 8,
+            "Assembler": 69
+          },
+          "adv_counts": {
+            "c [gcc]": 8,
+            "assembler [gcc]": 69
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 269,
+            "C/C++": 1351,
+            "Assembler": 144
+          },
+          "adv_counts": {
+            "assembler [gcc]": 40,
+            "assemblerToPreprocess [gcc]": 104,
+            "c [gcc]": 1351,
+            "rust": 269
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 1764,
+        "cache_write_duration": {
+          "secs": 6,
+          "nanos": 482985238
+        },
+        "cache_read_hit_duration": {
+          "secs": 0,
+          "nanos": 71056365
+        },
+        "compilations": 1764,
+        "compiler_write_duration": {
+          "secs": 411,
+          "nanos": 530881771
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "crate-type": 59,
+          "-E": 2,
+          "-": 4,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 77,
+            "misses": 1769,
+            "writes": 1764,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 0,
+              "nanos": 70728646
+            },
+            "write_duration": {
+              "secs": 4,
+              "nanos": 268079865
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 0,
+    "rust_misses": 269,
+    "rust_hit_percent": 0.0,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34351973495/artifacts/BoringCache-host-cold/tmp/boringcache-one-evidence-7f8eb0875e2d2ec09256ff24da11e6a6a8b8a6734a69b6ff8b107e3cd92dda2a.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "cold",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102467810016,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102467810016",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:38:05Z",
+    "completed_at": "2026-09-09T12:43:22Z",
+    "job_seconds": 317.0,
+    "build_seconds": 284.054,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      283.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 13.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 284.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/GitHub-host-cold",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 69,
+            "C/C++": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 69,
+            "c [gcc]": 1
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 269,
+            "C/C++": 1358,
+            "Assembler": 144
+          },
+          "adv_counts": {
+            "rust": 269,
+            "assembler [gcc]": 40,
+            "c [gcc]": 1358,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 1281,
+        "cache_writes": 490,
+        "cache_write_duration": {
+          "secs": 215,
+          "nanos": 608601357
+        },
+        "cache_read_hit_duration": {
+          "secs": 11,
+          "nanos": 618090147
+        },
+        "compilations": 1771,
+        "compiler_write_duration": {
+          "secs": 338,
+          "nanos": 329078456
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-": 4,
+          "crate-type": 59,
+          "missing input": 8,
+          "-E": 2
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 0,
+    "rust_misses": 269,
+    "rust_hit_percent": 0.0,
+    "cache_write_errors": 1281,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "cold",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102467810180,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102467810180",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:38:04Z",
+    "completed_at": "2026-09-09T12:47:51Z",
+    "job_seconds": 587.0,
+    "build_seconds": 515.668,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      301.0,
+      213.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 23.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 516.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/BoringCache-android-cold",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 69,
+            "C/C++": 17
+          },
+          "adv_counts": {
+            "c [gcc]": 8,
+            "c [clang]": 9,
+            "assembler [gcc]": 69
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Assembler": 287,
+            "Rust": 666,
+            "C/C++": 2681
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "assembler [gcc]": 40,
+            "c [clang]": 1330,
+            "assembler [clang]": 39,
+            "rust": 666,
+            "c [gcc]": 1351,
+            "assemblerToPreprocess [clang]": 104
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 3634,
+        "cache_write_duration": {
+          "secs": 14,
+          "nanos": 98329355
+        },
+        "cache_read_hit_duration": {
+          "secs": 0,
+          "nanos": 83998905
+        },
+        "compilations": 3634,
+        "compiler_write_duration": {
+          "secs": 1144,
+          "nanos": 926470730
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "missing input": 11,
+          "-": 12,
+          "-E": 4,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 86,
+            "misses": 3715,
+            "writes": 3634,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 0,
+              "nanos": 83579590
+            },
+            "write_duration": {
+              "secs": 9,
+              "nanos": 222133380
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 0,
+    "rust_misses": 666,
+    "rust_hit_percent": 0.0,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34351973495/artifacts/BoringCache-android-cold/tmp/boringcache-one-evidence-64a40dbe3a0e7f973e58b2ed4d77c69d83661d9cde3fd4bff32d54541f2188d8.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "cold",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102467810240,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102467810240",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:38:04Z",
+    "completed_at": "2026-09-09T12:48:30Z",
+    "job_seconds": 626.0,
+    "build_seconds": 564.838,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      321.0,
+      242.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 15.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 17.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 565.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 1.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/GitHub-android-cold",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 68,
+            "C/C++": 5
+          },
+          "adv_counts": {
+            "assembler [gcc]": 68,
+            "c [gcc]": 4,
+            "c [clang]": 1
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 666,
+            "Assembler": 288,
+            "C/C++": 2693
+          },
+          "adv_counts": {
+            "assembler [gcc]": 41,
+            "c [clang]": 1338,
+            "c [gcc]": 1355,
+            "rust": 666,
+            "assemblerToPreprocess [gcc]": 104,
+            "assemblerToPreprocess [clang]": 104,
+            "assembler [clang]": 39
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 2192,
+        "cache_writes": 1455,
+        "cache_write_duration": {
+          "secs": 208,
+          "nanos": 635691221
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 927342086
+        },
+        "compilations": 3647,
+        "compiler_write_duration": {
+          "secs": 1048,
+          "nanos": 193319158
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "crate-type": 139,
+          "missing input": 11,
+          "-": 12,
+          "-E": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 0,
+    "rust_misses": 666,
+    "rust_hit_percent": 0.0,
+    "cache_write_errors": 2192,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "warm",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102471230944,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102471230944",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:48:33Z",
+    "completed_at": "2026-09-09T12:52:56Z",
+    "job_seconds": 263.0,
+    "build_seconds": 141.888,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      77.0,
+      62.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 21.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 26.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 26.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 24.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 142.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/BoringCache-android-warm",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 356,
+            "C/C++": 2696,
+            "Rust": 660
+          },
+          "adv_counts": {
+            "assembler [clang]": 39,
+            "assemblerToPreprocess [clang]": 104,
+            "rust": 660,
+            "c [gcc]": 1358,
+            "assembler [gcc]": 109,
+            "c [clang]": 1338,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 6,
+            "C/C++": 2
+          },
+          "adv_counts": {
+            "c [clang]": 1,
+            "c [gcc]": 1,
+            "rust": 6
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 8,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 4,
+          "nanos": 843717777
+        },
+        "compilations": 8,
+        "compiler_write_duration": {
+          "secs": 27,
+          "nanos": 756102438
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "missing input": 11,
+          "-": 12,
+          "-E": 4,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 660,
+    "rust_misses": 6,
+    "rust_hit_percent": 99.09909909909909,
+    "cache_write_errors": 8,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34351973495/artifacts/BoringCache-android-warm/tmp/boringcache-one-evidence-204c49c0d32c76164e5e37c6c37b55dcd7851dc645b59f7f5ee8f5bd6dc55a60.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "warm",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102471231009,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102471231009",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:48:33Z",
+    "completed_at": "2026-09-09T12:50:35Z",
+    "job_seconds": 122.0,
+    "build_seconds": 79.067,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      78.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 80.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/BoringCache-host-warm",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 266,
+            "Assembler": 213,
+            "C/C++": 1358
+          },
+          "adv_counts": {
+            "c [gcc]": 1358,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [gcc]": 104,
+            "rust": 266
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 3,
+            "C/C++": 1
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "rust": 3
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 4,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 870607196
+        },
+        "compilations": 4,
+        "compiler_write_duration": {
+          "secs": 9,
+          "nanos": 801716263
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-": 4,
+          "missing input": 8,
+          "crate-type": 59,
+          "-E": 2
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 266,
+    "rust_misses": 3,
+    "rust_hit_percent": 98.88475836431226,
+    "cache_write_errors": 4,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34351973495/artifacts/BoringCache-host-warm/tmp/boringcache-one-evidence-23297eb024c0cf49214312dfeb81d56e296f52b8d54e1985a7a061461165cbc4.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "warm",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102471231127,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102471231127",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:48:33Z",
+    "completed_at": "2026-09-09T12:55:52Z",
+    "job_seconds": 439.0,
+    "build_seconds": 344.227,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      193.0,
+      149.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 30.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 25.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 344.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/GitHub-android-warm",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 175,
+            "Rust": 396,
+            "C/C++": 953
+          },
+          "adv_counts": {
+            "c [clang]": 435,
+            "assemblerToPreprocess [clang]": 7,
+            "c [gcc]": 518,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [gcc]": 58,
+            "assembler [clang]": 1,
+            "rust": 396
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 270,
+            "Assembler": 181,
+            "C/C++": 1745
+          },
+          "adv_counts": {
+            "assembler [clang]": 38,
+            "rust": 270,
+            "assemblerToPreprocess [gcc]": 46,
+            "c [gcc]": 841,
+            "c [clang]": 904,
+            "assemblerToPreprocess [clang]": 97
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 2196,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 242,
+          "nanos": 977093968
+        },
+        "compilations": 2196,
+        "compiler_write_duration": {
+          "secs": 392,
+          "nanos": 278665137
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "missing input": 11,
+          "crate-type": 139,
+          "-E": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 396,
+    "rust_misses": 270,
+    "rust_hit_percent": 59.45945945945946,
+    "cache_write_errors": 2196,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "warm",
+    "cohort": "main",
+    "run_id": 34351973495,
+    "job_id": 102471231226,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34351973495/job/102471231226",
+    "source": "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+    "source_index": 0,
+    "workflow_commit": "84a5783c8f4ddddc1ab88ce0e89d098374af9e6b",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:48:35Z",
+    "completed_at": "2026-09-09T12:52:25Z",
+    "job_seconds": 230.0,
+    "build_seconds": 196.243,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      196.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 13.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 196.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34351973495/artifacts/GitHub-host-warm",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 120,
+            "Rust": 182,
+            "C/C++": 256
+          },
+          "adv_counts": {
+            "c [gcc]": 256,
+            "rust": 182,
+            "assembler [gcc]": 70,
+            "assemblerToPreprocess [gcc]": 50
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 1103,
+            "Assembler": 93,
+            "Rust": 87
+          },
+          "adv_counts": {
+            "assembler [gcc]": 39,
+            "rust": 87,
+            "assemblerToPreprocess [gcc]": 54,
+            "c [gcc]": 1103
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 1283,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 119,
+          "nanos": 277125143
+        },
+        "compilations": 1283,
+        "compiler_write_duration": {
+          "secs": 253,
+          "nanos": 343127541
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "missing input": 8,
+          "crate-type": 59,
+          "-": 4,
+          "-E": 2
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 182,
+    "rust_misses": 87,
+    "rust_hit_percent": 67.65799256505576,
+    "cache_write_errors": 1283,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34353983750,
+    "job_id": 102473883903,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34353983750/job/102473883903",
+    "source": "dc846f7ca7b4b8369f10f3d0f8c96bf835618667",
+    "source_index": 1,
+    "workflow_commit": "8049c881c4c91cabbba1d22d87a9a62f296ec004",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:56:31Z",
+    "completed_at": "2026-09-09T13:01:13Z",
+    "job_seconds": 282.0,
+    "build_seconds": 232.665,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      232.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 25.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 233.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34353983750/artifacts/GitHub-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 259,
+            "Rust": 181,
+            "Assembler": 120
+          },
+          "adv_counts": {
+            "rust": 181,
+            "assembler [gcc]": 70,
+            "c [gcc]": 259,
+            "assemblerToPreprocess [gcc]": 50
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 88,
+            "C/C++": 1100,
+            "Assembler": 93
+          },
+          "adv_counts": {
+            "assembler [gcc]": 39,
+            "rust": 88,
+            "assemblerToPreprocess [gcc]": 54,
+            "c [gcc]": 1100
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 915,
+        "cache_writes": 366,
+        "cache_write_duration": {
+          "secs": 122,
+          "nanos": 532140893
+        },
+        "cache_read_hit_duration": {
+          "secs": 94,
+          "nanos": 795996436
+        },
+        "compilations": 1281,
+        "compiler_write_duration": {
+          "secs": 239,
+          "nanos": 256284704
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "crate-type": 59,
+          "missing input": 8,
+          "-E": 2,
+          "-": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 181,
+    "rust_misses": 88,
+    "rust_hit_percent": 67.28624535315986,
+    "cache_write_errors": 915,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34353983750,
+    "job_id": 102473884234,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34353983750/job/102473884234",
+    "source": "dc846f7ca7b4b8369f10f3d0f8c96bf835618667",
+    "source_index": 1,
+    "workflow_commit": "8049c881c4c91cabbba1d22d87a9a62f296ec004",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:56:31Z",
+    "completed_at": "2026-09-09T13:05:02Z",
+    "job_seconds": 511.0,
+    "build_seconds": 428.317,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      230.0,
+      197.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 17.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 24.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 19.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 429.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34353983750/artifacts/GitHub-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 175,
+            "C/C++": 954,
+            "Rust": 396
+          },
+          "adv_counts": {
+            "rust": 396,
+            "c [gcc]": 518,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [gcc]": 58,
+            "assembler [clang]": 1,
+            "assemblerToPreprocess [clang]": 7,
+            "c [clang]": 436
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 1744,
+            "Rust": 270,
+            "Assembler": 181
+          },
+          "adv_counts": {
+            "assembler [clang]": 38,
+            "c [clang]": 903,
+            "assemblerToPreprocess [gcc]": 46,
+            "c [gcc]": 841,
+            "assemblerToPreprocess [clang]": 97,
+            "rust": 270
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 1234,
+        "cache_writes": 961,
+        "cache_write_duration": {
+          "secs": 296,
+          "nanos": 545793570
+        },
+        "cache_read_hit_duration": {
+          "secs": 228,
+          "nanos": 622957101
+        },
+        "compilations": 2195,
+        "compiler_write_duration": {
+          "secs": 354,
+          "nanos": 334201927
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "crate-type": 139,
+          "-": 12,
+          "missing input": 11,
+          "-E": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 396,
+    "rust_misses": 270,
+    "rust_hit_percent": 59.45945945945946,
+    "cache_write_errors": 1234,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34353983750,
+    "job_id": 102473884275,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34353983750/job/102473884275",
+    "source": "dc846f7ca7b4b8369f10f3d0f8c96bf835618667",
+    "source_index": 1,
+    "workflow_commit": "8049c881c4c91cabbba1d22d87a9a62f296ec004",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:56:31Z",
+    "completed_at": "2026-09-09T12:58:27Z",
+    "job_seconds": 116.0,
+    "build_seconds": 78.71,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      78.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 7.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 79.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34353983750/artifacts/BoringCache-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 266,
+            "Assembler": 213,
+            "C/C++": 1358
+          },
+          "adv_counts": {
+            "rust": 266,
+            "c [gcc]": 1358,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 3,
+            "C/C++": 1
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "rust": 3
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 4,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 151120437
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 450643136
+        },
+        "compilations": 4,
+        "compiler_write_duration": {
+          "secs": 8,
+          "nanos": 933659578
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-": 4,
+          "-E": 2,
+          "crate-type": 59,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 1837,
+            "misses": 9,
+            "writes": 4,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 2,
+              "nanos": 439454797
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 144429301
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 266,
+    "rust_misses": 3,
+    "rust_hit_percent": 98.88475836431226,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34353983750/artifacts/BoringCache-host-commit/tmp/boringcache-one-evidence-3f92ece9c6db20a775cb86905b95252d279ce77ee9ff847caf6c220961db33e3.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34353983750,
+    "job_id": 102473884397,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34353983750/job/102473884397",
+    "source": "dc846f7ca7b4b8369f10f3d0f8c96bf835618667",
+    "source_index": 1,
+    "workflow_commit": "8049c881c4c91cabbba1d22d87a9a62f296ec004",
+    "conclusion": "success",
+    "started_at": "2026-09-09T12:56:31Z",
+    "completed_at": "2026-09-09T13:01:09Z",
+    "job_seconds": 278.0,
+    "build_seconds": 177.246,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      96.0,
+      79.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 18.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 29.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 178.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34353983750/artifacts/BoringCache-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 660,
+            "C/C++": 2696,
+            "Assembler": 356
+          },
+          "adv_counts": {
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [clang]": 104,
+            "assembler [clang]": 39,
+            "c [clang]": 1338,
+            "c [gcc]": 1358,
+            "assemblerToPreprocess [gcc]": 104,
+            "rust": 660
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 6,
+            "C/C++": 2
+          },
+          "adv_counts": {
+            "c [clang]": 1,
+            "rust": 6,
+            "c [gcc]": 1
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 8,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 71136216
+        },
+        "cache_read_hit_duration": {
+          "secs": 5,
+          "nanos": 167534611
+        },
+        "compilations": 8,
+        "compiler_write_duration": {
+          "secs": 35,
+          "nanos": 721810633
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "-E": 4,
+          "missing input": 11,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 3712,
+            "misses": 89,
+            "writes": 8,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 5,
+              "nanos": 145145406
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 60779151
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 660,
+    "rust_misses": 6,
+    "rust_hit_percent": 99.09909909909909,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34353983750/artifacts/BoringCache-android-commit/tmp/boringcache-one-evidence-4a30b57827d28ad7355610bca35a718a34a55a1eebb310dbaf8cf302aa98c7f2.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34354926463,
+    "job_id": 102477058869,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354926463/job/102477058869",
+    "source": "e5759a2aab7ae7dc7aca6e7490c9f03caaa7ab33",
+    "source_index": 2,
+    "workflow_commit": "3ffb346f1422db4225961eb485ac3c8921a82d55",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:05:45Z",
+    "completed_at": "2026-09-09T13:07:51Z",
+    "job_seconds": 126.0,
+    "build_seconds": 55.336,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      55.14
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 26.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 56.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34354926463/artifacts/BoringCache-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 266,
+            "C/C++": 1358,
+            "Assembler": 213
+          },
+          "adv_counts": {
+            "assembler [gcc]": 109,
+            "rust": 266,
+            "c [gcc]": 1358,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 1,
+            "Rust": 3
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "rust": 3
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 4,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 82453145
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 137480742
+        },
+        "compilations": 4,
+        "compiler_write_duration": {
+          "secs": 6,
+          "nanos": 189986026
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "missing input": 8,
+          "crate-type": 59,
+          "-": 4,
+          "-E": 2
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 1837,
+            "misses": 9,
+            "writes": 4,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 2,
+              "nanos": 126819582
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 77379772
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 266,
+    "rust_misses": 3,
+    "rust_hit_percent": 98.88475836431226,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34354926463/artifacts/BoringCache-host-commit/tmp/boringcache-one-evidence-608435123d192acdb225c6bb6445ec5666f3feb70c9c3e1030a8c20c51cf24c8.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34354926463,
+    "job_id": 102477059123,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354926463/job/102477059123",
+    "source": "e5759a2aab7ae7dc7aca6e7490c9f03caaa7ab33",
+    "source_index": 2,
+    "workflow_commit": "3ffb346f1422db4225961eb485ac3c8921a82d55",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:05:46Z",
+    "completed_at": "2026-09-09T13:10:43Z",
+    "job_seconds": 297.0,
+    "build_seconds": 178.594,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      96.0,
+      80.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 23.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 18.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 35.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 178.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34354926463/artifacts/BoringCache-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 660,
+            "Assembler": 356,
+            "C/C++": 2696
+          },
+          "adv_counts": {
+            "assembler [gcc]": 109,
+            "assembler [clang]": 39,
+            "c [gcc]": 1358,
+            "rust": 660,
+            "assemblerToPreprocess [clang]": 104,
+            "c [clang]": 1338,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 6,
+            "C/C++": 2
+          },
+          "adv_counts": {
+            "rust": 6,
+            "c [gcc]": 1,
+            "c [clang]": 1
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 8,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 65608622
+        },
+        "cache_read_hit_duration": {
+          "secs": 5,
+          "nanos": 351156890
+        },
+        "compilations": 8,
+        "compiler_write_duration": {
+          "secs": 35,
+          "nanos": 517624762
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "-E": 4,
+          "missing input": 11,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 3712,
+            "misses": 89,
+            "writes": 8,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 5,
+              "nanos": 326345653
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 55014821
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 660,
+    "rust_misses": 6,
+    "rust_hit_percent": 99.09909909909909,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34354926463/artifacts/BoringCache-android-commit/tmp/boringcache-one-evidence-ccfb347ec9cdc0d841fdf68575b5cc5e3d756a76f1bd041ef0700ec85b081616.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34354926463,
+    "job_id": 102477059199,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354926463/job/102477059199",
+    "source": "e5759a2aab7ae7dc7aca6e7490c9f03caaa7ab33",
+    "source_index": 2,
+    "workflow_commit": "3ffb346f1422db4225961eb485ac3c8921a82d55",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:05:46Z",
+    "completed_at": "2026-09-09T13:08:56Z",
+    "job_seconds": 190.0,
+    "build_seconds": 153.153,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      153.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 18.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 153.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34354926463/artifacts/GitHub-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 259,
+            "C/C++": 521,
+            "Assembler": 144
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 74,
+            "c [gcc]": 521,
+            "rust": 259,
+            "assembler [gcc]": 70
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Assembler": 69,
+            "C/C++": 838,
+            "Rust": 10
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 30,
+            "rust": 10,
+            "c [gcc]": 838,
+            "assembler [gcc]": 39
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 664,
+        "cache_writes": 253,
+        "cache_write_duration": {
+          "secs": 36,
+          "nanos": 709390569
+        },
+        "cache_read_hit_duration": {
+          "secs": 43,
+          "nanos": 634844302
+        },
+        "compilations": 917,
+        "compiler_write_duration": {
+          "secs": 185,
+          "nanos": 511453558
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "crate-type": 59,
+          "missing input": 8,
+          "-": 4,
+          "-E": 2
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 259,
+    "rust_misses": 10,
+    "rust_hit_percent": 96.28252788104089,
+    "cache_write_errors": 664,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34354926463,
+    "job_id": 102477059251,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354926463/job/102477059251",
+    "source": "e5759a2aab7ae7dc7aca6e7490c9f03caaa7ab33",
+    "source_index": 2,
+    "workflow_commit": "3ffb346f1422db4225961eb485ac3c8921a82d55",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:05:45Z",
+    "completed_at": "2026-09-09T13:11:59Z",
+    "job_seconds": 374.0,
+    "build_seconds": 314.638,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      180.0,
+      132.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 15.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 315.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34354926463/artifacts/GitHub-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 1689,
+            "Rust": 548,
+            "Assembler": 252
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 58,
+            "c [clang]": 629,
+            "rust": 548,
+            "c [gcc]": 1060,
+            "assemblerToPreprocess [clang]": 46,
+            "assembler [clang]": 39,
+            "assembler [gcc]": 109
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 1009,
+            "Assembler": 104,
+            "Rust": 118
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [clang]": 58,
+            "rust": 118,
+            "c [clang]": 710,
+            "assemblerToPreprocess [gcc]": 46,
+            "c [gcc]": 299
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 658,
+        "cache_writes": 573,
+        "cache_write_duration": {
+          "secs": 98,
+          "nanos": 259774444
+        },
+        "cache_read_hit_duration": {
+          "secs": 124,
+          "nanos": 709734577
+        },
+        "compilations": 1231,
+        "compiler_write_duration": {
+          "secs": 289,
+          "nanos": 596950518
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "missing input": 11,
+          "crate-type": 139,
+          "-E": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 548,
+    "rust_misses": 118,
+    "rust_hit_percent": 82.28228228228228,
+    "cache_write_errors": 658,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34355618883,
+    "job_id": 102479414927,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355618883/job/102479414927",
+    "source": "4749511c110e1d1c4c8ff6e13145585f805f697d",
+    "source_index": 3,
+    "workflow_commit": "c20efcb8a7dd5f544359d9aabd6b22215bddbe6f",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:12:29Z",
+    "completed_at": "2026-09-09T13:16:29Z",
+    "job_seconds": 240.0,
+    "build_seconds": 146.739,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      78.0,
+      67.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 22.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 24.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 147.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34355618883/artifacts/BoringCache-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 356,
+            "C/C++": 2696,
+            "Rust": 660
+          },
+          "adv_counts": {
+            "c [clang]": 1338,
+            "assembler [gcc]": 109,
+            "rust": 660,
+            "assembler [clang]": 39,
+            "assemblerToPreprocess [gcc]": 104,
+            "assemblerToPreprocess [clang]": 104,
+            "c [gcc]": 1358
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 2,
+            "Rust": 6
+          },
+          "adv_counts": {
+            "c [clang]": 1,
+            "c [gcc]": 1,
+            "rust": 6
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 8,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 56033663
+        },
+        "cache_read_hit_duration": {
+          "secs": 4,
+          "nanos": 794966590
+        },
+        "compilations": 8,
+        "compiler_write_duration": {
+          "secs": 31,
+          "nanos": 597369697
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-E": 4,
+          "missing input": 11,
+          "-": 12,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 3712,
+            "misses": 89,
+            "writes": 8,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 4,
+              "nanos": 776372277
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 48738056
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 660,
+    "rust_misses": 6,
+    "rust_hit_percent": 99.09909909909909,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34355618883/artifacts/BoringCache-android-commit/tmp/boringcache-one-evidence-82e0bf3c89483361e1c4619a0ffe675f3fe205247f049243041411ab341da0d5.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34355618883,
+    "job_id": 102479415121,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355618883/job/102479415121",
+    "source": "4749511c110e1d1c4c8ff6e13145585f805f697d",
+    "source_index": 3,
+    "workflow_commit": "c20efcb8a7dd5f544359d9aabd6b22215bddbe6f",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:12:29Z",
+    "completed_at": "2026-09-09T13:14:52Z",
+    "job_seconds": 143.0,
+    "build_seconds": 82.47,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      82.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 18.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 82.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34355618883/artifacts/BoringCache-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 266,
+            "C/C++": 1358,
+            "Assembler": 213
+          },
+          "adv_counts": {
+            "rust": 266,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [gcc]": 104,
+            "c [gcc]": 1358
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 3,
+            "C/C++": 1
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "rust": 3
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 4,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 168514446
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 509337702
+        },
+        "compilations": 4,
+        "compiler_write_duration": {
+          "secs": 9,
+          "nanos": 84610358
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "crate-type": 59,
+          "-E": 2,
+          "-": 4,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 1837,
+            "misses": 9,
+            "writes": 4,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 2,
+              "nanos": 497938052
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 161442950
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 266,
+    "rust_misses": 3,
+    "rust_hit_percent": 98.88475836431226,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34355618883/artifacts/BoringCache-host-commit/tmp/boringcache-one-evidence-1d1a763b6390bf73efc11bbcd6fe83bfbf38249368b0770bc4675d07f66b6229.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34355618883,
+    "job_id": 102479415259,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355618883/job/102479415259",
+    "source": "4749511c110e1d1c4c8ff6e13145585f805f697d",
+    "source_index": 3,
+    "workflow_commit": "c20efcb8a7dd5f544359d9aabd6b22215bddbe6f",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:12:29Z",
+    "completed_at": "2026-09-09T13:15:21Z",
+    "job_seconds": 172.0,
+    "build_seconds": 141.929,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      141.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 142.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34355618883/artifacts/GitHub-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 144,
+            "C/C++": 772,
+            "Rust": 265
+          },
+          "adv_counts": {
+            "rust": 265,
+            "c [gcc]": 772,
+            "assemblerToPreprocess [gcc]": 74,
+            "assembler [gcc]": 70
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Assembler": 69,
+            "Rust": 4,
+            "C/C++": 587
+          },
+          "adv_counts": {
+            "rust": 4,
+            "assembler [gcc]": 39,
+            "c [gcc]": 587,
+            "assemblerToPreprocess [gcc]": 30
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 343,
+        "cache_writes": 317,
+        "cache_write_duration": {
+          "secs": 52,
+          "nanos": 288084322
+        },
+        "cache_read_hit_duration": {
+          "secs": 58,
+          "nanos": 165567453
+        },
+        "compilations": 660,
+        "compiler_write_duration": {
+          "secs": 126,
+          "nanos": 335864225
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-E": 2,
+          "crate-type": 59,
+          "-": 4,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 265,
+    "rust_misses": 4,
+    "rust_hit_percent": 98.51301115241635,
+    "cache_write_errors": 343,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34355618883,
+    "job_id": 102479415323,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355618883/job/102479415323",
+    "source": "4749511c110e1d1c4c8ff6e13145585f805f697d",
+    "source_index": 3,
+    "workflow_commit": "c20efcb8a7dd5f544359d9aabd6b22215bddbe6f",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:12:29Z",
+    "completed_at": "2026-09-09T13:18:51Z",
+    "job_seconds": 382.0,
+    "build_seconds": 312.537,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      197.0,
+      113.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 20.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 17.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 313.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34355618883/artifacts/GitHub-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 307,
+            "C/C++": 2161,
+            "Rust": 590
+          },
+          "adv_counts": {
+            "c [gcc]": 1356,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [clang]": 58,
+            "assembler [clang]": 39,
+            "rust": 590,
+            "c [clang]": 805,
+            "assemblerToPreprocess [gcc]": 101
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Assembler": 49,
+            "Rust": 76,
+            "C/C++": 537
+          },
+          "adv_counts": {
+            "c [clang]": 534,
+            "c [gcc]": 3,
+            "assemblerToPreprocess [gcc]": 3,
+            "rust": 76,
+            "assemblerToPreprocess [clang]": 46
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 371,
+        "cache_writes": 291,
+        "cache_write_duration": {
+          "secs": 63,
+          "nanos": 258239551
+        },
+        "cache_read_hit_duration": {
+          "secs": 265,
+          "nanos": 111765627
+        },
+        "compilations": 662,
+        "compiler_write_duration": {
+          "secs": 153,
+          "nanos": 626043846
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-E": 4,
+          "-": 12,
+          "crate-type": 139,
+          "missing input": 11
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 590,
+    "rust_misses": 76,
+    "rust_hit_percent": 88.58858858858859,
+    "cache_write_errors": 371,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34356323483,
+    "job_id": 102481810990,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34356323483/job/102481810990",
+    "source": "b3c4128ee74770b0121f86e5ff3c13f9484cdb8b",
+    "source_index": 4,
+    "workflow_commit": "74291d3657270aa9e44d1027236bf55ae59f1c39",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:19:16Z",
+    "completed_at": "2026-09-09T13:21:22Z",
+    "job_seconds": 126.0,
+    "build_seconds": 85.386,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      85.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 8.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 86.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34356323483/artifacts/BoringCache-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1924,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1847,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 257,
+            "Assembler": 213,
+            "C/C++": 1358
+          },
+          "adv_counts": {
+            "assembler [gcc]": 109,
+            "c [gcc]": 1358,
+            "rust": 257,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 1,
+            "Rust": 13
+          },
+          "adv_counts": {
+            "rust": 13,
+            "c [gcc]": 1
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 14,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 222485204
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 696770436
+        },
+        "compilations": 14,
+        "compiler_write_duration": {
+          "secs": 26,
+          "nanos": 893804314
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "crate-type": 59,
+          "-E": 2,
+          "-": 4,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 1828,
+            "misses": 19,
+            "writes": 14,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 2,
+              "nanos": 682942040
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 195592938
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 257,
+    "rust_misses": 13,
+    "rust_hit_percent": 95.18518518518519,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34356323483/artifacts/BoringCache-host-commit/tmp/boringcache-one-evidence-85e78cbc3fdaa6235ea8b20c61e7f539a8c4d8bab720ccb85a51dd8cb7ba25f3.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34356323483,
+    "job_id": 102481811174,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34356323483/job/102481811174",
+    "source": "b3c4128ee74770b0121f86e5ff3c13f9484cdb8b",
+    "source_index": 4,
+    "workflow_commit": "74291d3657270aa9e44d1027236bf55ae59f1c39",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:19:17Z",
+    "completed_at": "2026-09-09T13:24:40Z",
+    "job_seconds": 323.0,
+    "build_seconds": 225.248,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      133.0,
+      90.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 13.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 18.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 18.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 25.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 225.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34356323483/artifacts/BoringCache-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 2696,
+            "Rust": 640,
+            "Assembler": 356
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "c [clang]": 1338,
+            "c [gcc]": 1358,
+            "assembler [clang]": 39,
+            "assembler [gcc]": 109,
+            "rust": 640,
+            "assemblerToPreprocess [clang]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 26,
+            "C/C++": 2
+          },
+          "adv_counts": {
+            "c [clang]": 1,
+            "c [gcc]": 1,
+            "rust": 26
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 28,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 227746448
+        },
+        "cache_read_hit_duration": {
+          "secs": 5,
+          "nanos": 916524332
+        },
+        "compilations": 28,
+        "compiler_write_duration": {
+          "secs": 110,
+          "nanos": 32462232
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "crate-type": 139,
+          "-E": 4,
+          "missing input": 11
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 3692,
+            "misses": 109,
+            "writes": 28,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 5,
+              "nanos": 882375234
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 176962018
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 640,
+    "rust_misses": 26,
+    "rust_hit_percent": 96.09609609609609,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34356323483/artifacts/BoringCache-android-commit/tmp/boringcache-one-evidence-e280ef28081fac5ca694bf95c944a9685141fe5ac9384241fbdec14d3ec76f8c.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34356323483,
+    "job_id": 102481811255,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34356323483/job/102481811255",
+    "source": "b3c4128ee74770b0121f86e5ff3c13f9484cdb8b",
+    "source_index": 4,
+    "workflow_commit": "74291d3657270aa9e44d1027236bf55ae59f1c39",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:19:16Z",
+    "completed_at": "2026-09-09T13:22:41Z",
+    "job_seconds": 205.0,
+    "build_seconds": 164.53,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      164.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 4.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 164.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34356323483/artifacts/GitHub-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1924,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1847,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 1082,
+            "Assembler": 149,
+            "Rust": 254
+          },
+          "adv_counts": {
+            "c [gcc]": 1082,
+            "assembler [gcc]": 70,
+            "rust": 254,
+            "assemblerToPreprocess [gcc]": 79
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 16,
+            "Assembler": 64,
+            "C/C++": 277
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 25,
+            "assembler [gcc]": 39,
+            "c [gcc]": 277,
+            "rust": 16
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 189,
+        "cache_writes": 168,
+        "cache_write_duration": {
+          "secs": 56,
+          "nanos": 259824773
+        },
+        "cache_read_hit_duration": {
+          "secs": 216,
+          "nanos": 460318917
+        },
+        "compilations": 357,
+        "compiler_write_duration": {
+          "secs": 80,
+          "nanos": 968437322
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "missing input": 8,
+          "-": 4,
+          "crate-type": 59,
+          "-E": 2
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 254,
+    "rust_misses": 16,
+    "rust_hit_percent": 94.07407407407408,
+    "cache_write_errors": 189,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34356323483,
+    "job_id": 102481811277,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34356323483/job/102481811277",
+    "source": "b3c4128ee74770b0121f86e5ff3c13f9484cdb8b",
+    "source_index": 4,
+    "workflow_commit": "74291d3657270aa9e44d1027236bf55ae59f1c39",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:19:16Z",
+    "completed_at": "2026-09-09T13:25:50Z",
+    "job_seconds": 394.0,
+    "build_seconds": 327.682,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      197.0,
+      129.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 12.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 19.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 16.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 328.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34356323483/artifacts/GitHub-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 2241,
+            "Assembler": 356,
+            "Rust": 606
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "rust": 606,
+            "assembler [clang]": 39,
+            "assemblerToPreprocess [clang]": 104,
+            "c [gcc]": 1356,
+            "assembler [gcc]": 109,
+            "c [clang]": 885
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 60,
+            "C/C++": 457
+          },
+          "adv_counts": {
+            "c [clang]": 454,
+            "rust": 60,
+            "c [gcc]": 3
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 257,
+        "cache_writes": 260,
+        "cache_write_duration": {
+          "secs": 57,
+          "nanos": 932689244
+        },
+        "cache_read_hit_duration": {
+          "secs": 264,
+          "nanos": 733247581
+        },
+        "compilations": 517,
+        "compiler_write_duration": {
+          "secs": 174,
+          "nanos": 226655445
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-E": 4,
+          "-": 12,
+          "missing input": 11,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 606,
+    "rust_misses": 60,
+    "rust_hit_percent": 90.990990990991,
+    "cache_write_errors": 257,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34357094580,
+    "job_id": 102484425652,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425652",
+    "source": "9349eb3f673f8a354077e52eb41dac4cfdbf84db",
+    "source_index": 5,
+    "workflow_commit": "7926afe2dc68b5d2dc7e18547d12bf23ca1c2e38",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:26:37Z",
+    "completed_at": "2026-09-09T13:31:39Z",
+    "job_seconds": 302.0,
+    "build_seconds": 219.047,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      128.0,
+      89.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 17.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 20.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 14.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 11.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 219.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34357094580/artifacts/BoringCache-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 644,
+            "C/C++": 2696,
+            "Assembler": 356
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "c [clang]": 1338,
+            "c [gcc]": 1358,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [clang]": 104,
+            "assembler [clang]": 39,
+            "rust": 644
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 2,
+            "Rust": 22
+          },
+          "adv_counts": {
+            "c [clang]": 1,
+            "c [gcc]": 1,
+            "rust": 22
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 24,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 199562676
+        },
+        "cache_read_hit_duration": {
+          "secs": 6,
+          "nanos": 532489337
+        },
+        "compilations": 24,
+        "compiler_write_duration": {
+          "secs": 101,
+          "nanos": 420700254
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-E": 4,
+          "missing input": 11,
+          "crate-type": 139,
+          "-": 12
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 3696,
+            "misses": 105,
+            "writes": 24,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 6,
+              "nanos": 504318978
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 157854116
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 644,
+    "rust_misses": 22,
+    "rust_hit_percent": 96.69669669669669,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34357094580/artifacts/BoringCache-android-commit/tmp/boringcache-one-evidence-938ca45a23e238ecd4d9560917ad8ed415481febf95e767d16cba90d6746eae3.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "android",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34357094580,
+    "job_id": 102484425822,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425822",
+    "source": "9349eb3f673f8a354077e52eb41dac4cfdbf84db",
+    "source_index": 5,
+    "workflow_commit": "7926afe2dc68b5d2dc7e18547d12bf23ca1c2e38",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:26:38Z",
+    "completed_at": "2026-09-09T13:32:56Z",
+    "job_seconds": 378.0,
+    "build_seconds": 311.258,
+    "build_exit_code": 0,
+    "build_command": [
+      "bash",
+      "bingle_jsi/scripts/build_android.sh"
+    ],
+    "cargo_compile_seconds": [
+      185.0,
+      124.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 13.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "success",
+        "seconds": 19.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "success",
+        "seconds": 15.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 312.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34357094580/artifacts/GitHub-android-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 643,
+            "Assembler": 356,
+            "C/C++": 2360
+          },
+          "adv_counts": {
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [clang]": 104,
+            "c [gcc]": 1357,
+            "rust": 643,
+            "assembler [clang]": 39,
+            "assemblerToPreprocess [gcc]": 104,
+            "c [clang]": 1003
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 338,
+            "Rust": 23
+          },
+          "adv_counts": {
+            "c [clang]": 336,
+            "c [gcc]": 2,
+            "rust": 23
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 232,
+        "cache_writes": 129,
+        "cache_write_duration": {
+          "secs": 31,
+          "nanos": 628867784
+        },
+        "cache_read_hit_duration": {
+          "secs": 287,
+          "nanos": 19759832
+        },
+        "compilations": 361,
+        "compiler_write_duration": {
+          "secs": 126,
+          "nanos": 333393760
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "missing input": 11,
+          "-E": 4,
+          "-": 12,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: 454d9aa9cdbcb5eb327d4780b22c4ac6db481dedadba96d91a5f5308b906d854, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 643,
+    "rust_misses": 23,
+    "rust_hit_percent": 96.54654654654655,
+    "cache_write_errors": 232,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "GitHub",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34357094580,
+    "job_id": 102484425830,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425830",
+    "source": "9349eb3f673f8a354077e52eb41dac4cfdbf84db",
+    "source_index": 5,
+    "workflow_commit": "7926afe2dc68b5d2dc7e18547d12bf23ca1c2e38",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:26:37Z",
+    "completed_at": "2026-09-09T13:30:07Z",
+    "job_seconds": 210.0,
+    "build_seconds": 171.014,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      170.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 5.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 10.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 14.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 171.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34357094580/artifacts/GitHub-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 1125,
+            "Assembler": 162,
+            "Rust": 259
+          },
+          "adv_counts": {
+            "rust": 259,
+            "c [gcc]": 1125,
+            "assemblerToPreprocess [gcc]": 79,
+            "assembler [gcc]": 83
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Assembler": 51,
+            "C/C++": 234,
+            "Rust": 10
+          },
+          "adv_counts": {
+            "assembler [gcc]": 26,
+            "rust": 10,
+            "c [gcc]": 234,
+            "assemblerToPreprocess [gcc]": 25
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 147,
+        "cache_writes": 148,
+        "cache_write_duration": {
+          "secs": 50,
+          "nanos": 309359870
+        },
+        "cache_read_hit_duration": {
+          "secs": 232,
+          "nanos": 127011607
+        },
+        "compilations": 295,
+        "compiler_write_duration": {
+          "secs": 62,
+          "nanos": 498490630
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "missing input": 8,
+          "-E": 2,
+          "crate-type": 59,
+          "-": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "ghac, name: e0c508c563ba2710afdf376c2b7c555b6673588477f6a1c875accc301726ef87, prefix: /sccache/",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 259,
+    "rust_misses": 10,
+    "rust_hit_percent": 96.28252788104089,
+    "cache_write_errors": 147,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [],
+    "cli_versions": []
+  },
+  {
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "commit",
+    "cohort": "rolling",
+    "run_id": 34357094580,
+    "job_id": 102484425870,
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425870",
+    "source": "9349eb3f673f8a354077e52eb41dac4cfdbf84db",
+    "source_index": 5,
+    "workflow_commit": "7926afe2dc68b5d2dc7e18547d12bf23ca1c2e38",
+    "conclusion": "success",
+    "started_at": "2026-09-09T13:26:37Z",
+    "completed_at": "2026-09-09T13:28:57Z",
+    "job_seconds": 140.0,
+    "build_seconds": 71.427,
+    "build_exit_code": 0,
+    "build_command": [
+      "cargo",
+      "build",
+      "--locked",
+      "-p",
+      "bingle_test",
+      "--features",
+      "localnet",
+      "--bin",
+      "localnet_e2e_provisioner"
+    ],
+    "cargo_compile_seconds": [
+      71.0
+    ],
+    "steps": {
+      "Set up job": {
+        "conclusion": "success",
+        "seconds": 3.0
+      },
+      "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Record and verify the upstream source": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4": {
+        "conclusion": "success",
+        "seconds": 9.0
+      },
+      "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Record compiler and dependency identity": {
+        "conclusion": "success",
+        "seconds": 1.0
+      },
+      "Install native build prerequisites": {
+        "conclusion": "success",
+        "seconds": 21.0
+      },
+      "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Prepare the upstream Android NDK": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure GitHub sccache storage": {
+        "conclusion": "skipped",
+        "seconds": 0.0
+      },
+      "Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 21.0
+      },
+      "Run the upstream workload": {
+        "conclusion": "success",
+        "seconds": 71.0
+      },
+      "Retain native compiler statistics": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Retain measurements and product evidence": {
+        "conclusion": "success",
+        "seconds": 2.0
+      },
+      "Post Configure BoringCache": {
+        "conclusion": "success",
+        "seconds": 7.0
+      },
+      "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1": {
+        "conclusion": "success",
+        "seconds": 0.0
+      },
+      "Complete job": {
+        "conclusion": "success",
+        "seconds": 0.0
+      }
+    },
+    "evidence_directory": "evidence/bingle_rust/34357094580/artifacts/BoringCache-host-commit",
+    "sccache": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 1358,
+            "Rust": 259,
+            "Assembler": 213
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "assembler [gcc]": 109,
+            "c [gcc]": 1358,
+            "rust": 259
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 10,
+            "C/C++": 1
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "rust": 10
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 11,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 110005889
+        },
+        "cache_read_hit_duration": {
+          "secs": 16,
+          "nanos": 203116399
+        },
+        "compilations": 11,
+        "compiler_write_duration": {
+          "secs": 13,
+          "nanos": 579735627
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-": 4,
+          "-E": 2,
+          "missing input": 8,
+          "crate-type": 59
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 1830,
+            "misses": 16,
+            "writes": 11,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 16,
+              "nanos": 191583920
+            },
+            "write_duration": {
+              "secs": 0,
+              "nanos": 99024804
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "rust_hits": 259,
+    "rust_misses": 10,
+    "rust_hit_percent": 96.28252788104089,
+    "cache_write_errors": 0,
+    "cache_read_errors": 0,
+    "cache_timeouts": 0,
+    "nextest_summary": [],
+    "product_evidence_files": [
+      "evidence/bingle_rust/34357094580/artifacts/BoringCache-host-commit/tmp/boringcache-one-evidence-8dc4be2260d24653a418ec9ee00a1720e1a35eec4d591c837e8d8e262d99f5eb.json"
+    ],
+    "cli_versions": [
+      "v1.30.1"
+    ]
+  }
+]

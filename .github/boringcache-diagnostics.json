@@ -1,0 +1,1141 @@
+[
+  {
+    "label": "bingle_natural_metadata",
+    "run_id": 34354407009,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "cold",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354407009/job/102475315131",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "miss": 1
+      },
+      "bingle_test": {
+        "miss": 1
+      }
+    },
+    "read_only_write_denials": 0,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "-p",
+        "bingle_test",
+        "--features",
+        "localnet",
+        "--bin",
+        "localnet_e2e_provisioner"
+      ],
+      "elapsed_seconds": 196.746,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 69,
+            "C/C++": 8
+          },
+          "adv_counts": {
+            "c [gcc]": 8,
+            "assembler [gcc]": 69
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 269,
+            "C/C++": 1351,
+            "Assembler": 144
+          },
+          "adv_counts": {
+            "assembler [gcc]": 40,
+            "rust": 269,
+            "c [gcc]": 1351,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 1764,
+        "cache_write_duration": {
+          "secs": 6,
+          "nanos": 707508575
+        },
+        "cache_read_hit_duration": {
+          "secs": 0,
+          "nanos": 81997671
+        },
+        "compilations": 1764,
+        "compiler_write_duration": {
+          "secs": 429,
+          "nanos": 346725254
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-": 4,
+          "-E": 2,
+          "crate-type": 59,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 77,
+            "misses": 1769,
+            "writes": 1764,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 0,
+              "nanos": 81647775
+            },
+            "write_duration": {
+              "secs": 4,
+              "nanos": 452199862
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "target/debug/build/bingle_core-ab8ffda6fb8404ac/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:04:49.086021389Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_natural_metadata",
+    "run_id": 34354407009,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "cold",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354407009/job/102475315266",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "miss": 2
+      },
+      "bingle_local": {
+        "miss": 2
+      }
+    },
+    "read_only_write_denials": 0,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "bash",
+        "bingle_jsi/scripts/build_android.sh"
+      ],
+      "elapsed_seconds": 515.215,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 16,
+            "Assembler": 69
+          },
+          "adv_counts": {
+            "c [gcc]": 8,
+            "c [clang]": 8,
+            "assembler [gcc]": 69
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Assembler": 287,
+            "C/C++": 2682,
+            "Rust": 666
+          },
+          "adv_counts": {
+            "rust": 666,
+            "c [gcc]": 1351,
+            "assemblerToPreprocess [gcc]": 104,
+            "assembler [gcc]": 40,
+            "assemblerToPreprocess [clang]": 104,
+            "c [clang]": 1331,
+            "assembler [clang]": 39
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 3635,
+        "cache_write_duration": {
+          "secs": 14,
+          "nanos": 100758516
+        },
+        "cache_read_hit_duration": {
+          "secs": 0,
+          "nanos": 77123784
+        },
+        "compilations": 3635,
+        "compiler_write_duration": {
+          "secs": 1141,
+          "nanos": 903388194
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "missing input": 11,
+          "-E": 4,
+          "crate-type": 139
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 85,
+            "misses": 3716,
+            "writes": 3635,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 0,
+              "nanos": 76711294
+            },
+            "write_duration": {
+              "secs": 9,
+              "nanos": 191888071
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_core-ca4db97364373f9d/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:14:51.706226857Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_jsi-235183ebbfac1009/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:13:16.050413638Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_core-c47f351ddaf45ba4/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:10:58.417468266Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_jsi-213c5e2a36eb5bc2/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:09:14.199590732Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_natural_metadata",
+    "run_id": 34354407009,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "warm",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354407009/job/102480397257",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "miss": 2
+      },
+      "bingle_local": {
+        "miss": 2
+      }
+    },
+    "read_only_write_denials": 8,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "bash",
+        "bingle_jsi/scripts/build_android.sh"
+      ],
+      "elapsed_seconds": 146.237,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "C/C++": 2696,
+            "Assembler": 356,
+            "Rust": 660
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "assembler [gcc]": 109,
+            "assembler [clang]": 39,
+            "assemblerToPreprocess [clang]": 104,
+            "c [clang]": 1338,
+            "c [gcc]": 1358,
+            "rust": 660
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 2,
+            "Rust": 6
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "c [clang]": 1,
+            "rust": 6
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 8,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 4,
+          "nanos": 707763743
+        },
+        "compilations": 8,
+        "compiler_write_duration": {
+          "secs": 32,
+          "nanos": 377144381
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "crate-type": 139,
+          "-E": 4,
+          "missing input": 11
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_core-ca4db97364373f9d/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:21:01.116727500Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_jsi-235183ebbfac1009/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:20:31.627626081Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_core-c47f351ddaf45ba4/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:19:38.889455407Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_jsi-213c5e2a36eb5bc2/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:19:14.902499896Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_natural_metadata",
+    "run_id": 34354407009,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "warm",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34354407009/job/102480397510",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "miss": 1
+      },
+      "bingle_test": {
+        "miss": 1
+      }
+    },
+    "read_only_write_denials": 4,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "-p",
+        "bingle_test",
+        "--features",
+        "localnet",
+        "--bin",
+        "localnet_e2e_provisioner"
+      ],
+      "elapsed_seconds": 64.631,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 266,
+            "Assembler": 213,
+            "C/C++": 1358
+          },
+          "adv_counts": {
+            "c [gcc]": 1358,
+            "assembler [gcc]": 109,
+            "rust": 266,
+            "assemblerToPreprocess [gcc]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 1,
+            "Rust": 3
+          },
+          "adv_counts": {
+            "c [gcc]": 1,
+            "rust": 3
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 4,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 240711546
+        },
+        "compilations": 4,
+        "compiler_write_duration": {
+          "secs": 7,
+          "nanos": 248039103
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-E": 2,
+          "-": 4,
+          "crate-type": 59,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "target/debug/build/bingle_core-ab8ffda6fb8404ac/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-09",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-09T13:16:53.923575057Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=995036ed79d47d53990ecb385f9f73ab7b36c0ad"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_reproducible_metadata",
+    "run_id": 34355350222,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "cold",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355350222/job/102482554053",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "miss": 2
+      },
+      "bingle_local": {
+        "miss": 2
+      }
+    },
+    "read_only_write_denials": 0,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "bash",
+        "bingle_jsi/scripts/build_android.sh"
+      ],
+      "elapsed_seconds": 429.601,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 69,
+            "C/C++": 17
+          },
+          "adv_counts": {
+            "assembler [gcc]": 69,
+            "c [clang]": 9,
+            "c [gcc]": 8
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "C/C++": 2681,
+            "Assembler": 287,
+            "Rust": 666
+          },
+          "adv_counts": {
+            "assemblerToPreprocess [gcc]": 104,
+            "assembler [clang]": 39,
+            "c [gcc]": 1351,
+            "assemblerToPreprocess [clang]": 104,
+            "rust": 666,
+            "assembler [gcc]": 40,
+            "c [clang]": 1330
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 3634,
+        "cache_write_duration": {
+          "secs": 10,
+          "nanos": 399027678
+        },
+        "cache_read_hit_duration": {
+          "secs": 0,
+          "nanos": 66032013
+        },
+        "compilations": 3634,
+        "compiler_write_duration": {
+          "secs": 955,
+          "nanos": 60091374
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "-": 12,
+          "crate-type": 139,
+          "missing input": 11,
+          "-E": 4
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 86,
+            "misses": 3715,
+            "writes": 3634,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 0,
+              "nanos": 65625026
+            },
+            "write_duration": {
+              "secs": 6,
+              "nanos": 672508643
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_core-ca4db97364373f9d/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_jsi-235183ebbfac1009/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_core-c47f351ddaf45ba4/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_jsi-213c5e2a36eb5bc2/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_reproducible_metadata",
+    "run_id": 34355350222,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "cold",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355350222/job/102482554568",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "miss": 1
+      },
+      "bingle_test": {
+        "miss": 1
+      }
+    },
+    "read_only_write_denials": 0,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "-p",
+        "bingle_test",
+        "--features",
+        "localnet",
+        "--bin",
+        "localnet_e2e_provisioner"
+      ],
+      "elapsed_seconds": 219.471,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 69,
+            "C/C++": 8
+          },
+          "adv_counts": {
+            "c [gcc]": 8,
+            "assembler [gcc]": 69
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 269,
+            "Assembler": 144,
+            "C/C++": 1351
+          },
+          "adv_counts": {
+            "c [gcc]": 1351,
+            "assemblerToPreprocess [gcc]": 104,
+            "rust": 269,
+            "assembler [gcc]": 40
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 0,
+        "cache_writes": 1764,
+        "cache_write_duration": {
+          "secs": 7,
+          "nanos": 816138519
+        },
+        "cache_read_hit_duration": {
+          "secs": 0,
+          "nanos": 114586688
+        },
+        "compilations": 1764,
+        "compiler_write_duration": {
+          "secs": 489,
+          "nanos": 8863926
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-": 4,
+          "-E": 2,
+          "crate-type": 59,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": [
+          {
+            "name": "L0 (webdav)",
+            "location": "webdav, name: , prefix: /",
+            "hits": 77,
+            "misses": 1769,
+            "writes": 1764,
+            "write_failures": 0,
+            "backfills_from": 0,
+            "backfills_to": 0,
+            "hit_duration": {
+              "secs": 0,
+              "nanos": 114084023
+            },
+            "write_duration": {
+              "secs": 5,
+              "nanos": 106079375
+            }
+          }
+        ]
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "target/debug/build/bingle_core-ab8ffda6fb8404ac/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_reproducible_metadata",
+    "run_id": 34355350222,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "host",
+    "phase": "warm",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355350222/job/102487341167",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "hit": 1
+      },
+      "bingle_test": {
+        "hit": 1
+      }
+    },
+    "read_only_write_denials": 1,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "cargo",
+        "build",
+        "--locked",
+        "-p",
+        "bingle_test",
+        "--features",
+        "localnet",
+        "--bin",
+        "localnet_e2e_provisioner"
+      ],
+      "elapsed_seconds": 69.344,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 1923,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 4,
+        "requests_not_cacheable": 73,
+        "requests_executed": 1846,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Assembler": 213,
+            "C/C++": 1359,
+            "Rust": 268
+          },
+          "adv_counts": {
+            "c [gcc]": 1359,
+            "assembler [gcc]": 109,
+            "assemblerToPreprocess [gcc]": 104,
+            "rust": 268
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 1
+          },
+          "adv_counts": {
+            "rust": 1
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 1,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 2,
+          "nanos": 508475754
+        },
+        "compilations": 1,
+        "compiler_write_duration": {
+          "secs": 0,
+          "nanos": 290477874
+        },
+        "compile_fails": 4,
+        "not_cached": {
+          "-E": 2,
+          "crate-type": 59,
+          "-": 4,
+          "missing input": 8
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "target/debug/build/bingle_core-ab8ffda6fb8404ac/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  },
+  {
+    "label": "bingle_reproducible_metadata",
+    "run_id": 34355350222,
+    "repo": "bingle_rust",
+    "provider": "BoringCache",
+    "case": "android",
+    "phase": "warm",
+    "job_url": "https://github.com/boringcache/bingle_rust/actions/runs/34355350222/job/102487341278",
+    "conclusion": "success",
+    "workspace_library_lookups": {
+      "bingle_core": {
+        "hit": 2
+      },
+      "bingle_local": {
+        "hit": 2
+      }
+    },
+    "read_only_write_denials": 2,
+    "write_error_http_statuses": {},
+    "other_write_errors": [],
+    "build": {
+      "command": [
+        "bash",
+        "bingle_jsi/scripts/build_android.sh"
+      ],
+      "elapsed_seconds": 140.184,
+      "exit_code": 0
+    },
+    "native_stats": {
+      "stats": {
+        "compile_requests": 4048,
+        "requests_unsupported_compiler": 0,
+        "requests_not_compile": 81,
+        "requests_not_cacheable": 166,
+        "requests_executed": 3801,
+        "cache_errors": {
+          "counts": {
+            "Assembler": 1
+          },
+          "adv_counts": {
+            "assembler [gcc]": 1
+          }
+        },
+        "cache_hits": {
+          "counts": {
+            "Rust": 664,
+            "C/C++": 2698,
+            "Assembler": 356
+          },
+          "adv_counts": {
+            "rust": 664,
+            "assemblerToPreprocess [gcc]": 104,
+            "c [gcc]": 1359,
+            "c [clang]": 1339,
+            "assembler [gcc]": 109,
+            "assembler [clang]": 39,
+            "assemblerToPreprocess [clang]": 104
+          }
+        },
+        "cache_misses": {
+          "counts": {
+            "Rust": 2
+          },
+          "adv_counts": {
+            "rust": 2
+          }
+        },
+        "cache_timeouts": 0,
+        "cache_read_errors": 0,
+        "non_cacheable_compilations": 0,
+        "forced_recaches": 0,
+        "cache_write_errors": 2,
+        "cache_writes": 0,
+        "cache_write_duration": {
+          "secs": 0,
+          "nanos": 0
+        },
+        "cache_read_hit_duration": {
+          "secs": 5,
+          "nanos": 272536444
+        },
+        "compilations": 2,
+        "compiler_write_duration": {
+          "secs": 0,
+          "nanos": 658901296
+        },
+        "compile_fails": 80,
+        "not_cached": {
+          "missing input": 11,
+          "-E": 4,
+          "crate-type": 139,
+          "-": 12
+        },
+        "dist_compiles": {},
+        "dist_errors": 0,
+        "multi_level": null
+      },
+      "cache_location": "Multi-level (1 levels)",
+      "cache_size": null,
+      "max_cache_size": null,
+      "use_preprocessor_cache_mode": false,
+      "version": "0.17.0",
+      "basedirs": []
+    },
+    "build_metadata": [
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_core-ca4db97364373f9d/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/debug/build/bingle_jsi-235183ebbfac1009/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_core-c47f351ddaf45ba4/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      },
+      {
+        "file": "/var/tmp/bingle_native_target/x86_64-linux-android/release/build/bingle_jsi-213c5e2a36eb5bc2/output",
+        "lines": [
+          "cargo:rustc-env=VERGEN_BUILD_DATE=2026-09-04",
+          "cargo:rustc-env=VERGEN_BUILD_TIMESTAMP=2026-09-04T09:15:56.000000000Z",
+          "cargo:rustc-env=VERGEN_GIT_SHA=3ffb346f1422db4225961eb485ac3c8921a82d55"
+        ]
+      }
+    ],
+    "other_write_error_count": 0,
+    "other_write_errors_truncated": false
+  }
+]

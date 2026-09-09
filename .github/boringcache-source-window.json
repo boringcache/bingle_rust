@@ -1,0 +1,95 @@
+{
+  "manifest": {
+    "repo": "bingle_rust",
+    "folder": "bingle-rust-onboarding",
+    "upstream": "binglefoundation/bingle_rust",
+    "branch": "staging",
+    "commits": [
+      "8cf33ac3b8fa97b5c6902fe8a720322a1eb114dd",
+      "dc846f7ca7b4b8369f10f3d0f8c96bf835618667",
+      "e5759a2aab7ae7dc7aca6e7490c9f03caaa7ab33",
+      "4749511c110e1d1c4c8ff6e13145585f805f697d",
+      "b3c4128ee74770b0121f86e5ff3c13f9484cdb8b",
+      "9349eb3f673f8a354077e52eb41dac4cfdbf84db"
+    ]
+  },
+  "changes": [
+    {
+      "repo": "bingle_rust",
+      "source_index": 1,
+      "source": "dc846f7ca7b4b8369f10f3d0f8c96bf835618667",
+      "subject": "Merge pull request #223 from binglefoundation/feat/216-store-and-forward-e2e",
+      "changed_paths": [
+        "bingle_cli/Cargo.toml",
+        "bingle_cli/tests/integration.rs",
+        "bingle_cli/tests/store_and_forward_e2e.rs",
+        "scripts/e2e_sidewinder_localnet.sh"
+      ]
+    },
+    {
+      "repo": "bingle_rust",
+      "source_index": 2,
+      "source": "e5759a2aab7ae7dc7aca6e7490c9f03caaa7ab33",
+      "subject": "Merge pull request #229 from binglefoundation/dependabot/github_actions/github-actions-31df092e2e",
+      "changed_paths": [
+        ".github/workflows/e2e-android.yml"
+      ]
+    },
+    {
+      "repo": "bingle_rust",
+      "source_index": 3,
+      "source": "4749511c110e1d1c4c8ff6e13145585f805f697d",
+      "subject": "Merge pull request #228 from binglefoundation/feat/226-store-and-forward-testnet-e2e",
+      "changed_paths": [
+        "bingle_cli/Cargo.toml",
+        "bingle_cli/tests/integration.rs",
+        "bingle_cli/tests/store_and_forward_testnet_e2e.rs",
+        "bingle_local/src/api/sidewinder/mailbox.rs",
+        "tatum_staging_testnet_node.json"
+      ]
+    },
+    {
+      "repo": "bingle_rust",
+      "source_index": 4,
+      "source": "b3c4128ee74770b0121f86e5ff3c13f9484cdb8b",
+      "subject": "Merge pull request #230 from binglefoundation/fix/algochainconfig-default-fields",
+      "changed_paths": [
+        "Cargo.lock",
+        "bingle_cli/Cargo.toml",
+        "bingle_cli/src/main.rs",
+        "bingle_cli/tests/cli/shutdown.rs",
+        "bingle_core/Cargo.toml",
+        "bingle_core/src/util/config_utils.rs",
+        "bingle_core/tests/engine/ddb_upsert_relay_check.rs",
+        "bingle_core/tests/relay/discovery.rs",
+        "bingle_core/tests/test_util.rs",
+        "bingle_jsi/Cargo.toml",
+        "bingle_local/Cargo.toml",
+        "bingle_test/Cargo.toml",
+        "bingle_test/src/localnet/test_util.rs",
+        "bingle_test/src/tests_common/backends/real.rs",
+        "bingle_webserver/Cargo.toml"
+      ]
+    },
+    {
+      "repo": "bingle_rust",
+      "source_index": 5,
+      "source": "9349eb3f673f8a354077e52eb41dac4cfdbf84db",
+      "subject": "Merge pull request #233 from binglefoundation/feat/231-delegate-opted-in-accounts-scan",
+      "changed_paths": [
+        "Cargo.lock",
+        "bingle_cli/Cargo.toml",
+        "bingle_core/Cargo.toml",
+        "bingle_core/src/api/bingle_api_impl.rs",
+        "bingle_core/src/blockchain/algo_bingle.rs",
+        "bingle_core/tests/blockchain/algo_bingle/cache_test.rs",
+        "bingle_core/tests/blockchain/algo_bingle/handle_lookup.rs",
+        "bingle_core/tests/integration/blockchain/algo_bingle_cache_localnet.rs",
+        "bingle_jsi/Cargo.toml",
+        "bingle_local/Cargo.toml",
+        "bingle_test/Cargo.toml",
+        "bingle_webserver/Cargo.toml"
+      ]
+    }
+  ]
+}
