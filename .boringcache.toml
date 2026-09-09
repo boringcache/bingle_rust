@@ -1,5 +1,30 @@
 workspace = "boringcache/bingle-rust"
 
-[adapters.sccache]
-tag = "validation-series"
+[entries.cargo-target]
+kind = "cargo-target"
+tag = "cargo-target"
+path = "target"
+
+[profiles.dependencies]
+entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-git-db"]
+
+[profiles.cargo]
+entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-git-db", "cargo-target"]
+
+[adapters.cargo]
+profiles = ["cargo"]
+command = ["cargo", "build", "--locked", "-p", "bingle_test", "--features", "localnet", "--bin", "localnet_e2e_provisioner"]
+compiler-cache = "sccache"
 fail-on-cache-error = true
+
+[adapters.sccache]
+tag = "rust"
+fail-on-cache-error = true
+
+[entries.android-target]
+kind = "cargo-target"
+tag = "cargo-android-target"
+path = "/var/tmp/bingle_native_target"
+
+[profiles.android]
+entries = ["cargo-registry-cache", "cargo-registry-index", "cargo-git-db", "android-target"]

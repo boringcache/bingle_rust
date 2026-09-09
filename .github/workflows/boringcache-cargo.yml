@@ -1,0 +1,229 @@
+name: BoringCache Cargo validation
+'on':
+  workflow_dispatch:
+    inputs:
+      cli_version:
+        description: Optional exact BoringCache CLI release
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: boringcache-cargo-validation
+  cancel-in-progress: false
+jobs:
+  cold:
+    name: BoringCache Cargo ${{ matrix.case }} cold
+    if: github.repository_owner == 'boringcache' && github.ref == 'refs/heads/boringcache-validation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        case:
+        - host
+        - android
+    env:
+      CARGO_INCREMENTAL: '0'
+      CARGO_TERM_COLOR: never
+      CC: cc
+      CXX: c++
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Record source identity
+      shell: bash
+      run: |
+        mkdir -p "$RUNNER_TEMP/cargo-validation"
+        git rev-parse HEAD > "$RUNNER_TEMP/cargo-validation/workflow-commit.txt"
+        cp .github/boringcache-source "$RUNNER_TEMP/cargo-validation/upstream-commit.txt"
+        cp .boringcache.toml "$RUNNER_TEMP/cargo-validation/cache-plan.toml"
+        git status --porcelain > "$RUNNER_TEMP/cargo-validation/checkout.txt"
+        test ! -s "$RUNNER_TEMP/cargo-validation/checkout.txt"
+    - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4
+      with:
+        toolchain: 1.98.1
+        targets: x86_64-linux-android
+    - uses: taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7
+      with:
+        tool: sccache@0.17.0
+    - name: Install native prerequisites
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes pkg-config libssl-dev cmake protobuf-compiler
+        rustc -Vv
+        cargo -V
+        sccache --version
+    - name: Use source-based build timestamps
+      shell: bash
+      run: |
+        printf 'SOURCE_DATE_EPOCH=%s\n' "$(git show -s --format=%ct HEAD)" >> "$GITHUB_ENV"
+    - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961
+      if: matrix.case == 'android'
+      with:
+        distribution: temurin
+        java-version: '17'
+    - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+      if: matrix.case == 'android'
+    - name: Install Android NDK
+      if: matrix.case == 'android'
+      run: |
+        sdkmanager "ndk;27.1.12297006"
+        printf 'ANDROID_NDK_HOME=%s/ndk/27.1.12297006\n' "$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
+    - name: Run first-class Cargo
+      id: cargo
+      uses: boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7 # v1.30.1
+      if: matrix.case == 'host'
+      with:
+        cli-version: ${{ inputs.cli_version }}
+        mode: cargo
+        trust-policy: publish
+        fail-on-cache-error: true
+    - name: Verify the host executable
+      if: matrix.case == 'host'
+      run: |
+        test -x target/debug/localnet_e2e_provisioner
+        file target/debug/localnet_e2e_provisioner
+    - name: Prepare Android dependency archives
+      id: dependencies
+      if: matrix.case == 'android'
+      uses: boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7 # v1.30.1
+      with:
+        cli-version: ${{ inputs.cli_version }}
+        mode: archive
+        cache-profiles: dependencies
+        trust-policy: publish
+        fail-on-cache-error: true
+    - name: Build Android with first-class Cargo
+      if: matrix.case == 'android'
+      env:
+        BORINGCACHE_CARGO_POLICY: write
+        BINGLE_ANDROID_ABIS: x86_64
+      run: |
+        bash bingle_jsi/scripts/build_android.sh
+        file bingle_jsi/android/src/main/jniLibs/x86_64/libbingle_jsi.so
+        git diff --exit-code -- Cargo.lock
+    - name: Retain Cargo evidence
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      with:
+        name: cargo-${{ matrix.case }}-cold
+        path: |
+          ${{ runner.temp }}/cargo-validation
+          ${{ steps.cargo.outputs.evidence-path }}
+          ${{ steps.dependencies.outputs.evidence-path }}
+        retention-days: 30
+        if-no-files-found: error
+  warm:
+    name: BoringCache Cargo ${{ matrix.case }} warm
+    needs: cold
+    if: github.repository_owner == 'boringcache' && github.ref == 'refs/heads/boringcache-validation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      id-token: write
+    strategy:
+      fail-fast: false
+      matrix:
+        case:
+        - host
+        - android
+    env:
+      CARGO_INCREMENTAL: '0'
+      CARGO_TERM_COLOR: never
+      CC: cc
+      CXX: c++
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Record source identity
+      shell: bash
+      run: |
+        mkdir -p "$RUNNER_TEMP/cargo-validation"
+        git rev-parse HEAD > "$RUNNER_TEMP/cargo-validation/workflow-commit.txt"
+        cp .github/boringcache-source "$RUNNER_TEMP/cargo-validation/upstream-commit.txt"
+        cp .boringcache.toml "$RUNNER_TEMP/cargo-validation/cache-plan.toml"
+        git status --porcelain > "$RUNNER_TEMP/cargo-validation/checkout.txt"
+        test ! -s "$RUNNER_TEMP/cargo-validation/checkout.txt"
+    - uses: dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4
+      with:
+        toolchain: 1.98.1
+        targets: x86_64-linux-android
+    - uses: taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7
+      with:
+        tool: sccache@0.17.0
+    - name: Install native prerequisites
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes pkg-config libssl-dev cmake protobuf-compiler
+        rustc -Vv
+        cargo -V
+        sccache --version
+    - name: Use source-based build timestamps
+      shell: bash
+      run: |
+        printf 'SOURCE_DATE_EPOCH=%s\n' "$(git show -s --format=%ct HEAD)" >> "$GITHUB_ENV"
+    - uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961
+      if: matrix.case == 'android'
+      with:
+        distribution: temurin
+        java-version: '17'
+    - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+      if: matrix.case == 'android'
+    - name: Install Android NDK
+      if: matrix.case == 'android'
+      run: |
+        sdkmanager "ndk;27.1.12297006"
+        printf 'ANDROID_NDK_HOME=%s/ndk/27.1.12297006\n' "$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
+    - name: Run first-class Cargo
+      id: cargo
+      uses: boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7 # v1.30.1
+      if: matrix.case == 'host'
+      with:
+        cli-version: ${{ inputs.cli_version }}
+        mode: cargo
+        trust-policy: restore
+        fail-on-cache-error: true
+    - name: Verify the host executable
+      if: matrix.case == 'host'
+      run: |
+        test -x target/debug/localnet_e2e_provisioner
+        file target/debug/localnet_e2e_provisioner
+    - name: Prepare Android dependency archives
+      id: dependencies
+      if: matrix.case == 'android'
+      uses: boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7 # v1.30.1
+      with:
+        cli-version: ${{ inputs.cli_version }}
+        mode: archive
+        cache-profiles: dependencies
+        trust-policy: restore
+        fail-on-cache-error: true
+    - name: Build Android with first-class Cargo
+      if: matrix.case == 'android'
+      env:
+        BORINGCACHE_CARGO_POLICY: read-only
+        BINGLE_ANDROID_ABIS: x86_64
+      run: |
+        bash bingle_jsi/scripts/build_android.sh
+        file bingle_jsi/android/src/main/jniLibs/x86_64/libbingle_jsi.so
+        git diff --exit-code -- Cargo.lock
+    - name: Retain Cargo evidence
+      if: always()
+      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      with:
+        name: cargo-${{ matrix.case }}-warm
+        path: |
+          ${{ runner.temp }}/cargo-validation
+          ${{ steps.cargo.outputs.evidence-path }}
+          ${{ steps.dependencies.outputs.evidence-path }}
+        retention-days: 30
+        if-no-files-found: error

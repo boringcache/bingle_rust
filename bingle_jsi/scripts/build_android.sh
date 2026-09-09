@@ -71,6 +71,13 @@ if [[ -z "${ACTIVE_TOOLCHAIN:-}" ]]; then
 fi
 
 CARGO_CMD=(rustup run "$ACTIVE_TOOLCHAIN" cargo)
+if [[ -n "${BORINGCACHE_CARGO_POLICY:-}" ]]; then
+  case "$BORINGCACHE_CARGO_POLICY" in
+    write|read-only) ;;
+    *) echo "Invalid BoringCache Cargo policy" >&2; exit 2 ;;
+  esac
+  CARGO_CMD=(rustup run "$ACTIVE_TOOLCHAIN" boringcache cargo --"$BORINGCACHE_CARGO_POLICY" --profile android)
+fi
 
 # ── strip local build paths from the shipped library ──────────────────
 # Dependency panic-location strings and debuginfo embed absolute source
