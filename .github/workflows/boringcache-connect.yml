@@ -1,0 +1,25 @@
+name: Connect BoringCache validation
+on:
+  push:
+    branches: [boringcache-validation]
+    paths: [.github/workflows/boringcache-connect.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  connect:
+    if: github.repository_owner == 'boringcache' && github.ref == 'refs/heads/boringcache-validation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install CLI for repository enrollment
+        run: |
+          curl -fsSL https://install.boringcache.com/install.sh -o "$RUNNER_TEMP/install-boringcache.sh"
+          sh "$RUNNER_TEMP/install-boringcache.sh"
+          printf '%s/.local/bin\n' "$HOME" >> "$GITHUB_PATH"
+      - name: Connect this validation repository through GitHub OIDC
+        run: boringcache ci connect --oidc-provider github-actions
