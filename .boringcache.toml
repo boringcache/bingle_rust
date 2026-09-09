@@ -1,1 +1,5 @@
 workspace = "boringcache/bingle-rust"
+
+[adapters.sccache]
+tag = "validation-series"
+fail-on-cache-error = true
