@@ -55,8 +55,13 @@ path = "tests/integration.rs"
 # and does NOT skip when they are absent — it fails. Off by default, so the normal suites/CI don't run
 # it. Enable it explicitly:
 #   cargo test -p bingle_cli --features sidewinder_localnet --test integration -- --test-threads 1
+# `sidewinder_testnet` gates the store-and-forward end-to-end case against a deployed Sidewinder
+# cluster on TestNet (epic #200, story #226): config (cluster URL/token, TestNet node file, the two
+# enrolled+registered accounts) comes from the environment; off by default. Enable it explicitly:
+#   cargo test -p bingle_cli --features sidewinder_testnet --test integration -- --test-threads 1
 [features]
 sidewinder_localnet = []
+sidewinder_testnet = []
 
 [lints]
 workspace = true

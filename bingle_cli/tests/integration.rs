@@ -23,6 +23,13 @@ use std::process::Command;
 #[path = "store_and_forward_e2e.rs"]
 mod store_and_forward_e2e;
 
+// Store-and-forward end-to-end against a deployed Sidewinder cluster on TestNet (epic #200, #226).
+// Gated behind the `sidewinder_testnet` feature; config comes from the environment. FAILS (not skips)
+// when the config is absent. See the module's own docs.
+#[cfg(feature = "sidewinder_testnet")]
+#[path = "store_and_forward_testnet_e2e.rs"]
+mod store_and_forward_testnet_e2e;
+
 fn run(args: &[&str]) -> std::process::Output {
     Command::new(env!("CARGO_BIN_EXE_bingle_cli"))
         .args(args)

@@ -1,0 +1,11 @@
+{
+  "network": "testnet",
+  "client_api_url": "https://algorand-testnet-algod.gateway.tatum.io",
+  "client_api_port": 443,
+  "indexer_api_url": "https://algorand-testnet-indexer.gateway.tatum.io",
+  "indexer_api_port": 443,
+  "token": "t-6a95ef6e64b906fbf22090dd-e22a9380a9e84482b410fa6a",
+  "token_key": "x-api-key",
+  "app_id": 768197837,
+  "asset_id": 768197849
+}
