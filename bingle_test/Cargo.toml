@@ -27,7 +27,7 @@ ed25519-dalek = { version = "2", features = ["rand_core"] }
 
 # Depend on the main crate for real backend access to AlgoOps
 bingle_core = { path = "../bingle_core" }
-algo_ops = "0.7.7"
+algo_ops = "0.8.1"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 libc = "0.2"

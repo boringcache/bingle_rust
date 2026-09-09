@@ -3,11 +3,15 @@ use sha2::{Digest, Sha512_256};
 use std::collections::{HashMap, HashSet};
 use std::str::FromStr;
 use std::sync::{Arc, Mutex};
-use std::time::{SystemTime, UNIX_EPOCH};
 
 use crate::api::bingle_api::BingleApiBoth;
 use algo_ops::error::AlgoError;
-use algo_ops::{AlgoOps, AppArg, address_to_byte_key};
+use algo_ops::{AccountScanCache, AlgoOps, AppArg, ScannedAccount, address_to_byte_key};
+
+// The incremental opted-in-account scan (paging, cache, min-round watermark) now lives in `algo_ops`
+// (`AlgoOps::fetch_opted_in_accounts_cached` over its generic `AccountScanCache`). Re-export
+// `QueryMode` from there so callers keep using `bingle_core::blockchain::algo_bingle::QueryMode`.
+pub use algo_ops::QueryMode;
 
 use algonaut::{
     Algod,
@@ -65,39 +69,14 @@ pub const ACCOUNT_ASSET_MANAGER: &str = "ASSET_MANAGER";
 /// Account key for the asset freeze role in [`AlgoBingle::deploy_app_and_asset`].
 pub const ACCOUNT_ASSET_FREEZE: &str = "ASSET_FREEZE";
 
-const INDEXER_PAGE_SIZE: u64 = 100;
-
-fn indexer_excludes() -> Option<Vec<String>> {
-    Some(vec![
-        "assets".to_string(),
-        "created-apps".to_string(),
-        "created-assets".to_string(),
-    ])
-}
-
-/// Cached set of indexer-derived accounts opted in to a Bingle app, so handle and endpoint
-/// lookups can reuse a prior scan instead of paging the indexer from scratch each time.
-#[derive(Debug, Default, Clone)]
-pub struct AccountsCache {
-    /// The last round number that was fully processed.
-    pub last_round: u64,
-    /// The time when the cache was last updated (Unix timestamp in seconds).
-    pub last_updated: u64,
-    /// Map of account address to the full account object.
-    pub accounts: HashMap<String, algonaut::model::indexer::Account>,
-}
-
-/// How an indexer account query interacts with the [`AccountsCache`].
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum QueryMode {
-    /// Incrementally update the cache from the last processed round, or do a full scan if no
-    /// cache exists yet.
-    Refresh, // Incremental if cache exists, else Full
-    /// Serve results from the cache only, without contacting the network.
-    CacheOnly, // Use cache without network
-    /// Discard the cache and rebuild it with a full account scan.
-    ForceFull, // Force a full scan
-}
+/// Cached set of indexer-derived accounts opted in to a Bingle app, so handle and endpoint lookups
+/// can reuse a prior scan instead of paging the indexer from scratch each time.
+///
+/// Aliased to `algo_ops`'s generic [`AccountScanCache`] (which owns the paging, freshness, and
+/// min-round watermark logic) holding each opted-in account as a decoded [`ScannedAccount`]
+/// (address + the account's local state for the app). The caller decodes its own field — a handle,
+/// an endpoint — from [`ScannedAccount::local_state`]; the cache itself is schema-agnostic.
+pub type AccountsCache = AccountScanCache<ScannedAccount>;
 
 // Algorand minimum-balance and fee schedule, in microalgos (see the developer docs on
 // minimum balance). Used by the registration cost model; the app opt-in cost also depends on
@@ -858,28 +837,33 @@ impl AlgoBingle {
             self.ops.config
         );
         let mut results: Vec<(String, String)> = Vec::new();
-        let indexer_query_result = self.indexer_query_opted_in_accounts_sync(app_id, QueryMode::Refresh, Some(30), |acct| {
-            let addr = acct.get("address").and_then(|x| x.as_str()).unwrap_or("").to_string();
-            tracing::debug!("[AlgoBingle::list_static_endpoints_via_indexer_sync] processing account: address: {:?}", addr);
-            if let Some(als) = acct.get("apps-local-state").or_else(|| acct.get("apps_local_state")).and_then(|x| x.as_array()) {
-                for st in als {
-                    let id = st.get("id").and_then(|x| x.as_u64());
-                    // tracing::debug!("[AlgoBingle::list_static_endpoints_via_indexer_sync] processing app-local-state: id: {:?}", id);
-                    if id == Some(app_id) {
-                        let keyvals = st.get("key-value").or_else(|| st.get("key_value")).and_then(|x| x.as_array()).cloned().unwrap_or_default();
-                        let kvs = Self::decode_state_entries(&keyvals);
-                        tracing::debug!("[AlgoBingle::list_static_endpoints_via_indexer_sync] processing decoded: kvs: {:?}", kvs);
-                        let ep = kvs.iter().find(|(k, _)| k == "static_endpoint").map(|(_, v)| v.as_str()).unwrap_or("");
-                        let ep_x = kvs.iter().find(|(k, _)| k == "static_endpoint_x").map(|(_, v)| v.as_str()).unwrap_or("");
-                        let full_val = format!("{}{}", ep, ep_x);
-                        if !full_val.is_empty() {
-                            results.push((addr.clone(), full_val));
-                        }
-                    }
+        let indexer_query_result = self.indexer_query_opted_in_accounts_sync(
+            app_id,
+            QueryMode::Refresh,
+            Some(30),
+            |acct| {
+                tracing::debug!(
+                    "[AlgoBingle::list_static_endpoints_via_indexer_sync] processing account: address: {:?} local_state: {:?}",
+                    acct.address,
+                    acct.local_state
+                );
+                // `local_state` is already the app's decoded key/values (algo_ops scopes the scan to
+                // `app_id`), so the endpoint is a split byte-slice: `static_endpoint` plus overflow in
+                // `static_endpoint_x`.
+                let field = |key: &str| {
+                    acct.local_state
+                        .iter()
+                        .find(|(k, _)| k == key)
+                        .map(|(_, v)| v.as_str())
+                        .unwrap_or("")
+                };
+                let full_val = format!("{}{}", field("static_endpoint"), field("static_endpoint_x"));
+                if !full_val.is_empty() {
+                    results.push((acct.address.clone(), full_val));
                 }
-            }
-            Ok(())
-        });
+                Ok(())
+            },
+        );
 
         if let Err(e) = indexer_query_result {
             // A host-unreachable failure (no connection / HTTP send error) is an expected transient
@@ -905,39 +889,21 @@ impl AlgoBingle {
         }
     }
 
-    fn is_opted_in(acct: &algonaut::model::indexer::Account, app_id: u64) -> bool {
-        if acct.deleted.unwrap_or(false) {
-            return false;
-        }
-        if let Some(states) = &acct.apps_local_state {
-            states
-                .iter()
-                .any(|s| s.id == app_id && !s.deleted.unwrap_or(false))
-        } else {
-            false
-        }
-    }
-
-    fn collect_addresses(
-        txn: &algonaut::model::indexer::Transaction,
-        addresses: &mut HashSet<String>,
-    ) {
-        addresses.insert(txn.sender.clone());
-        if let Some(app_txn) = &txn.application_transaction
-            && let Some(accounts) = &app_txn.accounts
-        {
-            for addr in accounts {
-                addresses.insert(addr.clone());
-            }
-        }
-        if let Some(inner_txns) = &txn.inner_txns {
-            for inner in inner_txns {
-                Self::collect_addresses(inner, addresses);
-            }
-        }
-    }
-
-    /// Helper to query all accounts opted into the given app_id via the algonaut Indexer.
+    /// Query the accounts opted in to `app_id` via the indexer, invoking `f` once per opted-in
+    /// account (in cache order).
+    ///
+    /// A thin adapter over [`AlgoOps::fetch_opted_in_accounts_cached`]: the incremental paging, the
+    /// account cache, and the min-round watermark all live in `algo_ops` (over its
+    /// [`AccountScanCache`]). The only Bingle-specific part is the per-account decode `f` performs
+    /// against the already-decoded [`ScannedAccount::local_state`] — the endpoint or handle field.
+    ///
+    /// When this instance carries a shared [`cache`](Self::cache) the scan is cached/incremental per
+    /// `mode` and `cache_lifetime_secs`; without one, an ephemeral cache backs a single scan so the
+    /// callback still sees every currently opted-in account.
+    ///
+    /// # Errors
+    ///
+    /// Errors if `app_id` is 0, if the indexer query fails, or if `f` returns an error.
     pub fn indexer_query_opted_in_accounts_sync<F>(
         &self,
         app_id: u64,
@@ -946,7 +912,7 @@ impl AlgoBingle {
         mut f: F,
     ) -> Result<()>
     where
-        F: FnMut(&serde_json::Value) -> Result<()>,
+        F: FnMut(&ScannedAccount) -> Result<()>,
     {
         algo_log!(
             "[AlgoBingle][indexer_query_opted_in_accounts_sync] app_id={} mode={:?} cache_lifetime={:?}",
@@ -954,214 +920,33 @@ impl AlgoBingle {
             mode,
             cache_lifetime_secs
         );
-        if app_id == 0 {
-            bail!("app_id must be > 0");
+
+        // Refresh the caller's shared cache when present, else a throwaway one for a single scan.
+        let ephemeral;
+        let cache: &Mutex<AccountsCache> = match &self.cache {
+            Some(shared) => shared.as_ref(),
+            None => {
+                ephemeral = Mutex::new(AccountsCache::new());
+                &ephemeral
+            }
+        };
+
+        // Cache each opted-in account as its decoded `ScannedAccount`; the caller decodes its own
+        // field (endpoint, handle) from `local_state`, so the cache stays schema-agnostic.
+        self.ops.fetch_opted_in_accounts_cached(
+            app_id,
+            cache,
+            mode,
+            cache_lifetime_secs,
+            |acct| Some(acct.clone()),
+        )?;
+
+        let cache = cache
+            .lock()
+            .map_err(|_| anyhow!("account scan cache mutex poisoned"))?;
+        for (_addr, acct) in &cache.entries {
+            f(acct)?;
         }
-
-        if let Some(cache_lock) = &self.cache {
-            let mut cache = cache_lock.lock().unwrap();
-
-            let now = SystemTime::now()
-                .duration_since(UNIX_EPOCH)
-                .unwrap_or_default()
-                .as_secs();
-
-            let mut effective_mode = mode;
-            if mode == QueryMode::Refresh
-                && let Some(lifetime) = cache_lifetime_secs
-                && now < cache.last_updated + lifetime
-            {
-                algo_log!(
-                    "[AlgoBingle][indexer_query_opted_in_accounts_sync] Refresh: cache is fresh ({} < {} + {}), falling back to CacheOnly",
-                    now,
-                    cache.last_updated,
-                    lifetime
-                );
-                effective_mode = QueryMode::CacheOnly;
-            }
-
-            match effective_mode {
-                QueryMode::CacheOnly => {
-                    algo_log!(
-                        "[AlgoBingle][indexer_query_opted_in_accounts_sync] CacheOnly: using {} cached accounts",
-                        cache.accounts.len()
-                    );
-                }
-                QueryMode::ForceFull | QueryMode::Refresh => {
-                    let indexer = self.ops.indexer_client()?;
-                    if effective_mode == QueryMode::ForceFull || cache.last_round == 0 {
-                        algo_log!(
-                            "[AlgoBingle][indexer_query_opted_in_accounts_sync] {:?}: performing full scan",
-                            effective_mode
-                        );
-                        cache.accounts.clear();
-                        let mut next: Option<String> = None;
-                        let mut current_round;
-                        loop {
-                            let next_ref = next.as_deref();
-                            let response = self
-                                .ops
-                                .algod_call(|| {
-                                    indexer.search_for_accounts(
-                                        None,
-                                        Some(INDEXER_PAGE_SIZE),
-                                        next_ref,
-                                        None,
-                                        None,
-                                        indexer_excludes(),
-                                        None,
-                                        None,
-                                        None,
-                                        Some(AppId(app_id)),
-                                    )
-                                })
-                                .map_err(|e| anyhow!("incremental indexer request failed: {e}"))?;
-
-                            current_round = response.current_round;
-                            for acct in response.accounts {
-                                cache.accounts.insert(acct.address.clone(), acct);
-                            }
-                            next = response.next_token;
-                            if next.is_none() {
-                                break;
-                            }
-                        }
-                        cache.last_round = current_round;
-                    } else {
-                        algo_log!(
-                            "[AlgoBingle][indexer_query_opted_in_accounts_sync] Refresh: incremental since round {}",
-                            cache.last_round
-                        );
-                        let mut next: Option<String> = None;
-                        let mut addresses_to_refresh = HashSet::new();
-                        let min_round = cache.last_round + 1;
-                        let mut current_round;
-
-                        loop {
-                            let next_ref = next.as_deref();
-                            let response = self
-                                .ops
-                                .algod_call(|| {
-                                    indexer.search_for_transactions(
-                                        Some(INDEXER_PAGE_SIZE),
-                                        next_ref,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        Some(min_round),
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        None,
-                                        Some(AppId(app_id)),
-                                    )
-                                })
-                                .map_err(|e| {
-                                    anyhow!("indexer search_for_transactions failed: {e}")
-                                })?;
-
-                            current_round = response.current_round;
-                            for txn in response.transactions {
-                                Self::collect_addresses(&txn, &mut addresses_to_refresh);
-                            }
-                            next = response.next_token;
-                            if next.is_none() {
-                                break;
-                            }
-                        }
-
-                        algo_log!(
-                            "[AlgoBingle] Refresh: found {} unique addresses to check",
-                            addresses_to_refresh.len()
-                        );
-                        for addr in addresses_to_refresh {
-                            let address = Address::from_str(&addr)
-                                .map_err(|e| anyhow!("invalid address {addr}: {e}"))?;
-                            let acct_response = self
-                                .ops
-                                .algod_call(|| {
-                                    indexer.lookup_account_by_id(
-                                        &address,
-                                        None,
-                                        None,
-                                        indexer_excludes(),
-                                    )
-                                })
-                                .map_err(|e| {
-                                    anyhow!("indexer lookup_account_by_id failed for {addr}: {e}")
-                                })?;
-                            let acct = *acct_response.account;
-                            if Self::is_opted_in(&acct, app_id) {
-                                cache.accounts.insert(addr, acct);
-                            } else {
-                                cache.accounts.remove(&addr);
-                            }
-                        }
-                        cache.last_round = current_round;
-                    }
-                    cache.last_updated = now;
-                    algo_log!(
-                        "[AlgoBingle][indexer_query_opted_in_accounts_sync] done updating cache. size={} last_round={}. Iterating over accounts.",
-                        cache.accounts.len(),
-                        cache.last_round
-                    );
-                }
-            }
-
-            for acct in cache.accounts.values() {
-                let v = serde_json::to_value(acct)
-                    .map_err(|e| anyhow!("failed to serialize account from cache: {e}"))?;
-                f(&v)?;
-            }
-            return Ok(());
-        }
-
-        // Legacy behavior without cache
-        algo_log!(
-            "[AlgoBingle][indexer_query_opted_in_accounts_sync] no cache available, performing full scan"
-        );
-        let indexer = self.ops.indexer_client()?;
-        let mut next: Option<String> = None;
-        loop {
-            let next_ref = next.as_deref();
-            let response = self
-                .ops
-                .algod_call(|| {
-                    indexer.search_for_accounts(
-                        None,
-                        Some(INDEXER_PAGE_SIZE),
-                        next_ref,
-                        None,
-                        None,
-                        indexer_excludes(),
-                        None,
-                        None,
-                        None,
-                        Some(AppId(app_id)),
-                    )
-                })
-                .map_err(|e| anyhow!("full indexer request failed: {e}"))?;
-
-            for acct in response.accounts {
-                let v = serde_json::to_value(&acct)
-                    .map_err(|e| anyhow!("failed to serialize account: {e}"))?;
-                f(&v)?;
-            }
-            next = response.next_token;
-            if next.is_none() {
-                break;
-            }
-        }
-
-        algo_log!("[AlgoBingle][indexer_query_opted_in_accounts_sync] done");
         Ok(())
     }
 
@@ -1212,7 +997,7 @@ impl AlgoBingle {
     fn handle_lookup_sync(&self, app_id: u64, handle: &str) -> Result<Option<String>> {
         let mut matches: Vec<(String, u64)> = Vec::new();
         self.indexer_query_opted_in_accounts_sync(app_id, QueryMode::Refresh, Some(30), |acct| {
-            Self::extract_handle_match(acct, app_id, handle, &mut matches);
+            Self::extract_handle_match(acct, handle, &mut matches);
             Ok(())
         })?;
         algo_log!(
@@ -1257,7 +1042,7 @@ impl AlgoBingle {
     ) -> Result<Option<(String, String)>> {
         let mut matches: Vec<(String, String, u64)> = Vec::new();
         self.indexer_query_opted_in_accounts_sync(app_id, QueryMode::Refresh, Some(30), |acct| {
-            Self::handle_prefix_match(acct, app_id, prefix, &mut matches);
+            Self::handle_prefix_match(acct, prefix, &mut matches);
             Ok(())
         })?;
         algo_log!(
@@ -1277,52 +1062,33 @@ impl AlgoBingle {
             .collect()
     }
 
-    /// Extracted logic to find a handle match in an account's local state and append to matches list.
+    /// Find a handle match in an opted-in account's decoded local state, appending
+    /// `(address, handle_time)` to `matches` on an exact (normalised) match.
+    ///
+    /// `acct.local_state` is already the account's decoded key/values for the scanned app (algo_ops
+    /// scopes the scan to a single `app_id`), so this only selects the `Handle` / `HandleTime`
+    /// fields — no per-app filtering or base64 decode here.
     pub fn extract_handle_match(
-        acct: &serde_json::Value,
-        app_id: u64,
+        acct: &ScannedAccount,
         handle: &str,
         matches: &mut Vec<(String, u64)>,
     ) {
-        let addr = acct
-            .get("address")
-            .and_then(|x| x.as_str())
-            .unwrap_or("")
-            .to_string();
         let normalised_handle = Self::normalize_handle(handle);
-        // Find local state for this app id
-        if let Some(als) = acct
-            .get("apps-local-state")
-            .or_else(|| acct.get("apps_local_state"))
-            .and_then(|x| x.as_array())
+        algo_log!(
+            "[extract_handle_match] address={} local_state={:?}",
+            acct.address,
+            acct.local_state
+        );
+        if let Some((_, h)) = acct.local_state.iter().find(|(k, _)| k == "Handle")
+            && Self::normalize_handle(h) == normalised_handle
         {
-            for st in als {
-                let id = st.get("id").and_then(|x| x.as_u64());
-                if id == Some(app_id) {
-                    let keyvals = st
-                        .get("key-value")
-                        .or_else(|| st.get("key_value"))
-                        .and_then(|x| x.as_array())
-                        .cloned()
-                        .unwrap_or_default();
-                    let kvs = Self::decode_state_entries(&keyvals);
-                    algo_log!(
-                        "[extract_handle_match] address={} decoded_state={:?}",
-                        addr,
-                        kvs
-                    );
-                    if let Some((_, h)) = kvs.iter().find(|(k, _)| k == "Handle")
-                        && Self::normalize_handle(h) == normalised_handle
-                    {
-                        let time = kvs
-                            .iter()
-                            .find(|(k, _)| k == "HandleTime")
-                            .and_then(|(_, v)| v.parse::<u64>().ok())
-                            .unwrap_or(0);
-                        matches.push((addr.clone(), time));
-                    }
-                }
-            }
+            let time = acct
+                .local_state
+                .iter()
+                .find(|(k, _)| k == "HandleTime")
+                .and_then(|(_, v)| v.parse::<u64>().ok())
+                .unwrap_or(0);
+            matches.push((acct.address.clone(), time));
         }
     }
 
@@ -1343,15 +1109,18 @@ impl AlgoBingle {
         }
     }
 
-    /// Extracted logic to find a handle prefix match in an account's local state.
+    /// Find a handle prefix match in an opted-in account's decoded local state.
     ///
-    /// The `prefix` is normalised and compared against the start of the account's
-    /// normalised handle. On a match, appends `(address, canonical_handle, handle_time)`
-    /// to `matches`, where `canonical_handle` is the handle as written in local state.
-    /// An empty (post-normalisation) prefix never matches.
+    /// The `prefix` is normalised and compared against the start of the account's normalised handle.
+    /// On a match, appends `(address, canonical_handle, handle_time)` to `matches`, where
+    /// `canonical_handle` is the handle as written in local state. An empty (post-normalisation)
+    /// prefix never matches.
+    ///
+    /// `acct.local_state` is already the account's decoded key/values for the scanned app (algo_ops
+    /// scopes the scan to a single `app_id`), so this only selects the `Handle` / `HandleTime`
+    /// fields — no per-app filtering or base64 decode here.
     pub fn handle_prefix_match(
-        acct: &serde_json::Value,
-        app_id: u64,
+        acct: &ScannedAccount,
         prefix: &str,
         matches: &mut Vec<(String, String, u64)>,
     ) {
@@ -1359,39 +1128,16 @@ impl AlgoBingle {
         if normalised_prefix.is_empty() {
             return;
         }
-        let addr = acct
-            .get("address")
-            .and_then(|x| x.as_str())
-            .unwrap_or("")
-            .to_string();
-        // Find local state for this app id
-        if let Some(als) = acct
-            .get("apps-local-state")
-            .or_else(|| acct.get("apps_local_state"))
-            .and_then(|x| x.as_array())
+        if let Some((_, h)) = acct.local_state.iter().find(|(k, _)| k == "Handle")
+            && Self::normalize_handle(h).starts_with(&normalised_prefix)
         {
-            for st in als {
-                let id = st.get("id").and_then(|x| x.as_u64());
-                if id == Some(app_id) {
-                    let keyvals = st
-                        .get("key-value")
-                        .or_else(|| st.get("key_value"))
-                        .and_then(|x| x.as_array())
-                        .cloned()
-                        .unwrap_or_default();
-                    let kvs = Self::decode_state_entries(&keyvals);
-                    if let Some((_, h)) = kvs.iter().find(|(k, _)| k == "Handle")
-                        && Self::normalize_handle(h).starts_with(&normalised_prefix)
-                    {
-                        let time = kvs
-                            .iter()
-                            .find(|(k, _)| k == "HandleTime")
-                            .and_then(|(_, v)| v.parse::<u64>().ok())
-                            .unwrap_or(0);
-                        matches.push((addr.clone(), h.clone(), time));
-                    }
-                }
-            }
+            let time = acct
+                .local_state
+                .iter()
+                .find(|(k, _)| k == "HandleTime")
+                .and_then(|(_, v)| v.parse::<u64>().ok())
+                .unwrap_or(0);
+            matches.push((acct.address.clone(), h.clone(), time));
         }
     }
 

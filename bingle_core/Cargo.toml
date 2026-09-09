@@ -21,8 +21,11 @@ crate-type = ["rlib"]
 
 [dependencies]
 # Core deps kept iOS-friendly; heavy platform-specific deps remain gated below.
-blockchain_ops = "0.7.7"
-algo_ops = "0.7.7"
+blockchain_ops = "0.8.1"
+# 0.8.0 adds fetch_opted_in_accounts_cached — the generic incremental opted-in-account scan that
+# indexer_query_opted_in_accounts_sync delegates to instead of hand-rolling paging/cache; 0.8.1 adds
+# AccountScanCache::clear(), used by clear_accounts_cache to reset the cache (issue #231).
+algo_ops = "0.8.1"
 algonaut = "0.8.0"
 anyhow = "1"
 thiserror = "1"

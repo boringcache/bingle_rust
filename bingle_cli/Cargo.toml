@@ -21,7 +21,7 @@ vergen = { version = "8", features = ["build", "git", "gitcl", "cargo"] }
 
 [dependencies]
 bingle_core = { path = "../bingle_core", version = "0.3.3" }
-algo_ops = "0.7.7"
+algo_ops = "0.8.1"
 bingle_local = { path = "../bingle_local", version = "0.3.3" }
 chrono = { version = "0.4", features = ["serde"] }
 ed25519-dalek = { version = "2", features = ["rand_core"] }

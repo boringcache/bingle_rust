@@ -579,9 +579,7 @@ impl BingleApi for BingleApiImpl {
     fn clear_accounts_cache(&self) {
         algo_log!("[BingleApiImpl] clearing accounts cache");
         let mut cache = self.accounts_cache.lock().unwrap();
-        cache.accounts.clear();
-        cache.last_round = 0;
-        cache.last_updated = 0;
+        cache.clear();
     }
     fn handle_lookup_by_id(&self, user_id: &UserId) -> Option<Handle> {
         // Delegate to inherent reverse-lookup with caching/blockchain fallback

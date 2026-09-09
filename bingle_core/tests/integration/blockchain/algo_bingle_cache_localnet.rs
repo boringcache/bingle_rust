@@ -49,13 +49,13 @@ pub fn test_indexer_cache_force_full_and_cache_only() {
     {
         let c = cache.lock().unwrap();
         assert_eq!(
-            c.accounts.len(),
+            c.entries.len(),
             count as usize,
             "Cache should match found account count"
         );
         assert!(c.last_round > 0, "last_round should be set");
         assert!(
-            c.accounts.contains_key(ADDRESS_SPEND),
+            c.entries.iter().any(|(addr, _)| addr == ADDRESS_SPEND),
             "Cache should contain the opted-in account"
         );
     }
@@ -141,7 +141,7 @@ pub fn test_indexer_cache_refresh_incremental() {
             "last_round should have advanced"
         );
         assert!(
-            c.accounts.contains_key(ADDRESS_SPEND),
+            c.entries.iter().any(|(addr, _)| addr == ADDRESS_SPEND),
             "Cache should contain the newly opted-in account"
         );
     }
@@ -169,7 +169,7 @@ pub fn test_indexer_cache_refresh_incremental() {
 
     assert_eq!(count3, 0, "Should have 0 accounts after opt-out");
     assert_eq!(
-        cache.lock().unwrap().accounts.len(),
+        cache.lock().unwrap().entries.len(),
         0,
         "Cache should be empty"
     );
@@ -238,7 +238,7 @@ pub fn test_indexer_cache_clear_and_lifetime() {
     api.clear_accounts_cache();
     {
         let c = cache.lock().unwrap();
-        assert_eq!(c.accounts.len(), 0);
+        assert_eq!(c.entries.len(), 0);
         assert_eq!(c.last_round, 0);
         assert_eq!(c.last_updated, 0);
     }

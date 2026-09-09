@@ -19,7 +19,7 @@ crate-type = ["lib", "staticlib", "cdylib"]
 uniffi = { version = "0.28", features = ["cli"] }
 thiserror = "1"
 bingle_core = { path = "../bingle_core", version = "0.3.3" }
-algo_ops = "0.7.7"
+algo_ops = "0.8.1"
 bingle_local = { path = "../bingle_local", version = "0.3.3" }
 serde_json = "1"
 tracing = "0.1"

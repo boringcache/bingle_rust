@@ -1,17 +1,25 @@
-use algo_ops::AlgoOps;
-use algonaut::model::indexer::Account;
+use algo_ops::{AlgoOps, ScannedAccount};
 use bingle_core::blockchain::algo_bingle::{AccountsCache, AlgoBingle, QueryMode};
 use std::sync::{Arc, Mutex};
+
+// Build a cache entry for `address` with no local state (the decode callback under test here only
+// looks at the address). The cache stores each opted-in account as a `(address, ScannedAccount)`.
+fn cached_account(address: &str) -> (String, ScannedAccount) {
+    (
+        address.to_string(),
+        ScannedAccount {
+            address: address.to_string(),
+            local_state: Vec::new(),
+        },
+    )
+}
 
 #[test]
 pub fn test_cache_only_mode() {
     let cache = Arc::new(Mutex::new(AccountsCache::default()));
     {
         let mut c = cache.lock().unwrap();
-        // Create a dummy account
-        let mut acct = Account::default();
-        acct.address = "ADDR1".to_string();
-        c.accounts.insert("ADDR1".to_string(), acct);
+        c.entries.push(cached_account("ADDR1"));
     }
 
     // Placeholder AlgoOps - using dummy address
@@ -25,7 +33,7 @@ pub fn test_cache_only_mode() {
     let mut count = 0;
     ab.indexer_query_opted_in_accounts_sync(123, QueryMode::CacheOnly, None, |acct| {
         count += 1;
-        assert_eq!(acct.get("address").and_then(|a| a.as_str()), Some("ADDR1"));
+        assert_eq!(acct.address, "ADDR1");
         Ok(())
     })
     .unwrap();
@@ -43,9 +51,7 @@ pub fn test_cache_lifetime_fallback() {
 
     {
         let mut c = cache.lock().unwrap();
-        let mut acct = Account::default();
-        acct.address = "ADDR1".to_string();
-        c.accounts.insert("ADDR1".to_string(), acct);
+        c.entries.push(cached_account("ADDR1"));
         c.last_updated = now - 30; // updated 30s ago
         c.last_round = 100;
     }

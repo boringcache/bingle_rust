@@ -1,27 +1,28 @@
 // tests/blockchain/algo_bingle/handle_lookup.rs
+use algo_ops::ScannedAccount;
 use bingle_core::blockchain::algo_bingle::AlgoBingle;
-use serde_json::json;
+
+// Build an opted-in account with its (already-decoded) local state for the scanned app. algo_ops
+// scopes the scan to one app, so `local_state` here is the key/values for that single app —
+// exactly what `extract_handle_match` / `handle_prefix_match` now receive.
+fn account(address: &str, local_state: &[(&str, &str)]) -> ScannedAccount {
+    ScannedAccount {
+        address: address.to_string(),
+        local_state: local_state
+            .iter()
+            .map(|(k, v)| (k.to_string(), v.to_string()))
+            .collect(),
+    }
+}
 
 #[test]
 #[cfg(not(target_os = "ios"))]
 pub fn test_extract_handle_match_found() {
-    let app_id = 123;
     let handle = "alice";
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [
-            {
-                "id": 123,
-                "key-value": [
-                    { "key": "SGFuZGxl", "value": { "bytes": "YWxpY2U=", "type": 1 } }, // Handle: alice
-                    { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } } // HandleTime: 1000
-                ]
-            }
-        ]
-    });
+    let acct = account("ADDR1", &[("Handle", "alice"), ("HandleTime", "1000")]);
 
     let mut matches = Vec::new();
-    AlgoBingle::extract_handle_match(&acct, app_id, handle, &mut matches);
+    AlgoBingle::extract_handle_match(&acct, handle, &mut matches);
 
     assert_eq!(matches.len(), 1);
     assert_eq!(matches[0].0, "ADDR1");
@@ -31,23 +32,11 @@ pub fn test_extract_handle_match_found() {
 #[test]
 #[cfg(not(target_os = "ios"))]
 pub fn test_extract_handle_match_wrong_handle() {
-    let app_id = 123;
     let handle = "bob";
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [
-            {
-                "id": 123,
-                "key-value": [
-                    { "key": "SGFuZGxl", "value": { "bytes": "YWxpY2U=", "type": 1 } },
-                    { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-                ]
-            }
-        ]
-    });
+    let acct = account("ADDR1", &[("Handle", "alice"), ("HandleTime", "1000")]);
 
     let mut matches = Vec::new();
-    AlgoBingle::extract_handle_match(&acct, app_id, handle, &mut matches);
+    AlgoBingle::extract_handle_match(&acct, handle, &mut matches);
 
     assert!(matches.is_empty());
 }
@@ -67,30 +56,14 @@ pub fn test_pick_oldest_match() {
 
 #[test]
 #[cfg(not(target_os = "ios"))]
-pub fn test_extract_handle_match_multiple_apps() {
-    let app_id = 123;
+pub fn test_extract_handle_match_scoped_local_state() {
+    // The scan is app-scoped upstream in algo_ops, so the callback only sees the target app's local
+    // state. A handle in that scoped state matches; state for other apps never reaches this function.
     let handle = "alice";
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [
-            {
-                "id": 456,
-                "key-value": [
-                    { "key": "SGFuZGxl", "value": { "bytes": "Ym9i", "type": 1 } }
-                ]
-            },
-            {
-                "id": 123,
-                "key-value": [
-                    { "key": "SGFuZGxl", "value": { "bytes": "YWxpY2U=", "type": 1 } },
-                    { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-                ]
-            }
-        ]
-    });
+    let acct = account("ADDR1", &[("Handle", "alice"), ("HandleTime", "1000")]);
 
     let mut matches = Vec::new();
-    AlgoBingle::extract_handle_match(&acct, app_id, handle, &mut matches);
+    AlgoBingle::extract_handle_match(&acct, handle, &mut matches);
 
     assert_eq!(matches.len(), 1);
     assert_eq!(matches[0].0, "ADDR1");
@@ -124,20 +97,10 @@ pub fn test_normalize_handle_special_chars() {
 #[cfg(not(target_os = "ios"))]
 pub fn test_extract_handle_match_case_insensitive() {
     // Stored as "Alice" (registered form), looked up as "alice" (normalised)
-    let app_id = 123;
     let handle = "alice";
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [{
-            "id": 123,
-            "key-value": [
-                { "key": "SGFuZGxl", "value": { "bytes": "QWxpY2U=", "type": 1 } },
-                { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-            ]
-        }]
-    });
+    let acct = account("ADDR1", &[("Handle", "Alice"), ("HandleTime", "1000")]);
     let mut matches = Vec::new();
-    AlgoBingle::extract_handle_match(&acct, app_id, handle, &mut matches);
+    AlgoBingle::extract_handle_match(&acct, handle, &mut matches);
     assert_eq!(matches.len(), 1);
     assert_eq!(matches[0].0, "ADDR1");
 }
@@ -146,21 +109,13 @@ pub fn test_extract_handle_match_case_insensitive() {
 #[cfg(not(target_os = "ios"))]
 pub fn test_extract_handle_match_with_dots_in_stored() {
     // Stored as "james.jones", looked up as "jamesjones"
-    let app_id = 123;
     let handle = "jamesjones";
-    // base64("james.jones") = "amFtZXMuam9uZXM="
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [{
-            "id": 123,
-            "key-value": [
-                { "key": "SGFuZGxl", "value": { "bytes": "amFtZXMuam9uZXM=", "type": 1 } },
-                { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-            ]
-        }]
-    });
+    let acct = account(
+        "ADDR1",
+        &[("Handle", "james.jones"), ("HandleTime", "1000")],
+    );
     let mut matches = Vec::new();
-    AlgoBingle::extract_handle_match(&acct, app_id, handle, &mut matches);
+    AlgoBingle::extract_handle_match(&acct, handle, &mut matches);
     assert_eq!(matches.len(), 1);
     assert_eq!(matches[0].0, "ADDR1");
 }
@@ -169,20 +124,10 @@ pub fn test_extract_handle_match_with_dots_in_stored() {
 #[cfg(not(target_os = "ios"))]
 pub fn test_handle_prefix_match_found() {
     // Prefix "al" matches stored "Alice"; canonical handle preserved as written.
-    let app_id = 123;
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [{
-            "id": 123,
-            "key-value": [
-                { "key": "SGFuZGxl", "value": { "bytes": "QWxpY2U=", "type": 1 } }, // Handle: Alice
-                { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-            ]
-        }]
-    });
+    let acct = account("ADDR1", &[("Handle", "Alice"), ("HandleTime", "1000")]);
 
     let mut matches = Vec::new();
-    AlgoBingle::handle_prefix_match(&acct, app_id, "al", &mut matches);
+    AlgoBingle::handle_prefix_match(&acct, "al", &mut matches);
 
     assert_eq!(matches.len(), 1);
     assert_eq!(matches[0].0, "ADDR1");
@@ -195,21 +140,10 @@ pub fn test_handle_prefix_match_found() {
 pub fn test_handle_prefix_match_normalised() {
     // Input "abc" should match stored "ab_cd" (normalisation strips the underscore),
     // and the canonical handle "ab_cd" is returned as written.
-    let app_id = 123;
-    // base64("ab_cd") = "YWJfY2Q="
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [{
-            "id": 123,
-            "key-value": [
-                { "key": "SGFuZGxl", "value": { "bytes": "YWJfY2Q=", "type": 1 } },
-                { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 5, "type": 2 } }
-            ]
-        }]
-    });
+    let acct = account("ADDR1", &[("Handle", "ab_cd"), ("HandleTime", "5")]);
 
     let mut matches = Vec::new();
-    AlgoBingle::handle_prefix_match(&acct, app_id, "abc", &mut matches);
+    AlgoBingle::handle_prefix_match(&acct, "abc", &mut matches);
 
     assert_eq!(matches.len(), 1);
     assert_eq!(matches[0].1, "ab_cd");
@@ -218,42 +152,22 @@ pub fn test_handle_prefix_match_normalised() {
 #[test]
 #[cfg(not(target_os = "ios"))]
 pub fn test_handle_prefix_match_no_match() {
-    let app_id = 123;
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [{
-            "id": 123,
-            "key-value": [
-                { "key": "SGFuZGxl", "value": { "bytes": "QWxpY2U=", "type": 1 } }, // Alice
-                { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-            ]
-        }]
-    });
+    let acct = account("ADDR1", &[("Handle", "Alice"), ("HandleTime", "1000")]);
 
     let mut matches = Vec::new();
-    AlgoBingle::handle_prefix_match(&acct, app_id, "bob", &mut matches);
+    AlgoBingle::handle_prefix_match(&acct, "bob", &mut matches);
     assert!(matches.is_empty());
 }
 
 #[test]
 #[cfg(not(target_os = "ios"))]
 pub fn test_handle_prefix_match_empty_prefix_never_matches() {
-    let app_id = 123;
-    let acct = json!({
-        "address": "ADDR1",
-        "apps-local-state": [{
-            "id": 123,
-            "key-value": [
-                { "key": "SGFuZGxl", "value": { "bytes": "QWxpY2U=", "type": 1 } },
-                { "key": "SGFuZGxlVGltZQ==", "value": { "uint": 1000, "type": 2 } }
-            ]
-        }]
-    });
+    let acct = account("ADDR1", &[("Handle", "Alice"), ("HandleTime", "1000")]);
 
     let mut matches = Vec::new();
     // Empty and punctuation-only inputs normalise to empty and must not match everything.
-    AlgoBingle::handle_prefix_match(&acct, app_id, "", &mut matches);
-    AlgoBingle::handle_prefix_match(&acct, app_id, "!!", &mut matches);
+    AlgoBingle::handle_prefix_match(&acct, "", &mut matches);
+    AlgoBingle::handle_prefix_match(&acct, "!!", &mut matches);
     assert!(matches.is_empty());
 }
 

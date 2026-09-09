@@ -18,10 +18,10 @@ path = "src/lib.rs"
 
 [dependencies]
 bingle_core = { path = "../bingle_core", version = "0.3.3" }
-algo_ops = "0.7.7"
+algo_ops = "0.8.1"
 # Sidewinder sidechain node client: the store-and-forward Mailbox (FIFO) ops the offline path posts
 # to and reads from (store-and-forward epic #200, story #213). Built on the same algo_ops handle.
-sidewinder_ops = "0.7.7"
+sidewinder_ops = "0.8.1"
 # The sidewinder_ops client surfaces errors as `anyhow::Error`; we downcast them to classify
 # unreachable/not-found causes when mapping to BingleError.
 anyhow = "1"
