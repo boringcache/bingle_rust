@@ -44,7 +44,7 @@ build_metadata = []
 for build_root in [Path("target"), Path("/var/tmp/bingle_native_target")]:
     if build_root.exists():
         for file in build_root.glob("**/build/bingle_*/output"):
-            lines = [line for line in file.read_text().splitlines() if line.startswith(("cargo:rustc-env=VERGEN_BUILD_", "cargo:rustc-env=VERGEN_GIT_SHA="))]
+            lines = [line for line in file.read_text().splitlines() if line.startswith("cargo:rustc-env=VERGEN_")]
             if lines:
                 build_metadata.append({"file": str(file), "lines": lines})
 (destination / "build-metadata.json").write_text(json.dumps(build_metadata, indent=2) + "\n")
