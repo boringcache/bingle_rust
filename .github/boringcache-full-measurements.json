@@ -1,0 +1,1772 @@
+{
+  "schema_version": 1,
+  "scope": "Full integration validation for boringcache/bingle_rust, separate from the historical compiler/archive cohort.",
+  "timing": "Whole-job timestamps exclude queue time; One elapsed includes its cache operations and wrapped command. Never combine these boundaries.",
+  "runs": [
+    {
+      "repository": "boringcache/bingle_rust",
+      "databaseId": 34362432924,
+      "headSha": "f099f1b145397bf29ef33283dea009be68f80fb9",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/boringcache/bingle_rust/actions/runs/34362432924",
+      "jobs": [
+        {
+          "databaseId": 102502546416,
+          "name": "BoringCache Cargo android cold",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34362432924/job/102502546416",
+          "whole_job_seconds": 621.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407",
+              "conclusion": "success",
+              "seconds": 24.0
+            },
+            {
+              "name": "Install Android NDK",
+              "conclusion": "success",
+              "seconds": 23.0
+            },
+            {
+              "name": "Prepare Android dependency archives",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Build Android with first-class Cargo",
+              "conclusion": "success",
+              "seconds": 533.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:21:17.3577081Z     Finished `release` profile [optimized] target(s) in 4m 13s",
+            "2026-09-09T14:21:25.5850809Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (7.8s, 81.88 MB, 486 files)",
+            "2026-09-09T14:21:26.0012323Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (8.2s, 29.44 MB, 791 files)",
+            "2026-09-09T14:21:27.1197475Z Completed Saving cargo-android-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (9.4s, 1.40 GB, 4.4K files)",
+            "2026-09-09T14:25:27.7575295Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 3m 56s",
+            "2026-09-09T14:25:30.5661684Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (1.6s, 81.88 MB, 486 files)",
+            "2026-09-09T14:25:30.8921329Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (1.9s, 29.44 MB, 791 files)",
+            "2026-09-09T14:25:53.7332175Z Completed Saving cargo-android-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (24.7s, 4.77 GB, 8.5K files)",
+            "2026-09-09T14:25:58.0182797Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (1.1s, 29.44 MB, 791 files)",
+            "2026-09-09T14:26:00.4679456Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (3.5s, 81.88 MB, 486 files)"
+          ]
+        },
+        {
+          "databaseId": 102502546721,
+          "name": "BoringCache Cargo host cold",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34362432924/job/102502546721",
+          "whole_job_seconds": 238.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 207.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:19:21.8602653Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 3m 08s",
+            "2026-09-09T14:19:23.4380801Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (1.3s, 29.44 MB, 791 files)",
+            "2026-09-09T14:19:24.0918211Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (1.9s, 81.88 MB, 486 files)",
+            "2026-09-09T14:19:36.5551052Z Completed Saving cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (14.4s, 2.74 GB, 3.6K files)"
+          ]
+        },
+        {
+          "databaseId": 102506442895,
+          "name": "BoringCache Cargo ${{ matrix.case }} warm",
+          "status": "completed",
+          "conclusion": "skipped",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34362432924/job/102506442895",
+          "whole_job_seconds": -1.0,
+          "steps": []
+        }
+      ],
+      "one_evidence": [
+        {
+          "artifact": "cargo-android-cold",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "archive",
+              "cache_result": "miss",
+              "trust_policy": "publish",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-git-db-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": null,
+              "target_cache_hit": null,
+              "native_tool": null
+            }
+          ]
+        },
+        {
+          "artifact": "cargo-host-cold",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "miss",
+              "trust_policy": "publish",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-git-db-ubuntu-24-x86_64",
+                "cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 204,
+              "target_cache_hit": false,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 1923,
+                "compile_requests_executed": 1846,
+                "cache_hits": 77,
+                "cache_misses": 1764,
+                "hit_rate": 4.2,
+                "hit_counts": {
+                  "assembler": 69,
+                  "c_cpp": 8
+                },
+                "miss_counts": {
+                  "assembler": 144,
+                  "c_cpp": 1351,
+                  "rust": 269
+                },
+                "non_cacheable_calls": 73,
+                "non_cacheable_reasons": {
+                  "-": 4,
+                  "-E": 2,
+                  "crate-type": 59,
+                  "missing input": 8
+                },
+                "average_cache_read_hit_seconds": 0.001,
+                "average_cache_write_seconds": 0.003,
+                "average_compiler_seconds": 0.229,
+                "cache_errors": 1,
+                "cache_read_errors": 0,
+                "cache_write_errors": 0,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        }
+      ],
+      "workspace_diagnostics": []
+    },
+    {
+      "repository": "boringcache/bingle_rust",
+      "databaseId": 34363694063,
+      "headSha": "25df067f9ab55c4c28f0868cd0637e0dcadbd1e5",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/boringcache/bingle_rust/actions/runs/34363694063",
+      "jobs": [
+        {
+          "databaseId": 102506917599,
+          "name": "BoringCache Cargo host seed",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34363694063/job/102506917599",
+          "whole_job_seconds": 83.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 15.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 45.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:28:00.9492995Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (978ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:28:02.8783415Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (2.9s, 81.88 MB, 486 files)",
+            "2026-09-09T14:28:09.2499783Z Completed Restoring cache [cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (9.3s, 2.74 GB, 3.6K files)",
+            "2026-09-09T14:28:09.3908016Z [boringcache] Cargo source freshness restored: 675 unchanged, 3 changed/new; directories: 138 unchanged, 3 changed/new",
+            "2026-09-09T14:28:35.9462047Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 15.15s",
+            "2026-09-09T14:28:37.0525401Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (908ms, 81.88 MB, 486 files)",
+            "2026-09-09T14:28:37.0636323Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (918ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:28:41.3293813Z Completed Saving cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (5.2s, 2.74 GB, 3.6K files)"
+          ]
+        },
+        {
+          "databaseId": 102506917963,
+          "name": "BoringCache Cargo android seed",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34363694063/job/102506917963",
+          "whole_job_seconds": 180.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 18.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407",
+              "conclusion": "success",
+              "seconds": 24.0
+            },
+            {
+              "name": "Install Android NDK",
+              "conclusion": "success",
+              "seconds": 24.0
+            },
+            {
+              "name": "Prepare Android dependency archives",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Build Android with first-class Cargo",
+              "conclusion": "success",
+              "seconds": 88.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Prepare Android dependency archives",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:28:50.2018943Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (747ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:28:50.7220186Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (1.3s, 81.88 MB, 486 files)",
+            "2026-09-09T14:29:15.9347613Z Completed Restoring cache [cargo-android-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (24.6s, 4.77 GB, 8.5K files)",
+            "2026-09-09T14:29:16.0660261Z [boringcache] Cargo source freshness restored: 675 unchanged, 3 changed/new; directories: 138 unchanged, 3 changed/new",
+            "2026-09-09T14:29:46.7403793Z     Finished `release` profile [optimized] target(s) in 28.38s",
+            "2026-09-09T14:29:47.8445461Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (926ms, 81.88 MB, 486 files)",
+            "2026-09-09T14:29:47.8630915Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (945ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:29:53.6244908Z Completed Saving cargo-android-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (6.7s, 4.77 GB, 8.5K files)",
+            "2026-09-09T14:30:11.0279123Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 15.20s",
+            "2026-09-09T14:30:12.6396868Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (950ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:30:13.0816837Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (1.4s, 81.88 MB, 486 files)",
+            "2026-09-09T14:30:17.8346026Z Completed Saving cargo-android-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (6.1s, 4.77 GB, 8.5K files)",
+            "2026-09-09T14:30:20.6488757Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (841ms, 81.88 MB, 486 files)",
+            "2026-09-09T14:30:20.7856124Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (944ms, 29.44 MB, 791 files)"
+          ]
+        },
+        {
+          "databaseId": 102508060562,
+          "name": "BoringCache Cargo host warm",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34363694063/job/102508060562",
+          "whole_job_seconds": 126.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 5.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 91.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:31:02.7287752Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (1.8s, 29.44 MB, 791 files)",
+            "2026-09-09T14:31:04.2084176Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (3.3s, 81.88 MB, 486 files)",
+            "2026-09-09T14:31:23.0460497Z Completed Restoring cache [cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (22.1s, 2.74 GB, 3.6K files)",
+            "2026-09-09T14:31:23.2796489Z [boringcache] Cargo source freshness restored: 678 unchanged, 0 changed/new; directories: 141 unchanged, 0 changed/new",
+            "2026-09-09T14:32:27.0563290Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 1m 01s"
+          ]
+        },
+        {
+          "databaseId": 102508060907,
+          "name": "BoringCache Cargo android warm",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34363694063/job/102508060907",
+          "whole_job_seconds": 104.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407",
+              "conclusion": "success",
+              "seconds": 17.0
+            },
+            {
+              "name": "Install Android NDK",
+              "conclusion": "success",
+              "seconds": 15.0
+            },
+            {
+              "name": "Prepare Android dependency archives",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Build Android with first-class Cargo",
+              "conclusion": "success",
+              "seconds": 36.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Prepare Android dependency archives",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 1.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:31:28.4441741Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (527ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:31:28.7902896Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (873ms, 81.88 MB, 486 files)",
+            "2026-09-09T14:31:44.6889456Z Completed Restoring cache [cargo-android-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (15.3s, 4.77 GB, 8.5K files)",
+            "2026-09-09T14:31:44.8782112Z [boringcache] Cargo source freshness restored: 678 unchanged, 0 changed/new; directories: 141 unchanged, 0 changed/new",
+            "2026-09-09T14:31:56.2734942Z     Finished `release` profile [optimized] target(s) in 10.27s",
+            "2026-09-09T14:32:04.4604056Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 6.95s"
+          ]
+        }
+      ],
+      "one_evidence": [
+        {
+          "artifact": "cargo-android-seed",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "archive",
+              "cache_result": "hit",
+              "trust_policy": "publish",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": null,
+              "target_cache_hit": null,
+              "native_tool": null
+            }
+          ]
+        },
+        {
+          "artifact": "cargo-android-warm",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "archive",
+              "cache_result": "hit",
+              "trust_policy": "restore",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": null,
+              "target_cache_hit": null,
+              "native_tool": null
+            }
+          ]
+        },
+        {
+          "artifact": "cargo-host-seed",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "hit",
+              "trust_policy": "publish",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 42.4,
+              "target_cache_hit": true,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 7,
+                "compile_requests_executed": 2,
+                "cache_hits": 0,
+                "cache_misses": 2,
+                "hit_rate": 0,
+                "miss_counts": {
+                  "rust": 2
+                },
+                "non_cacheable_calls": 5,
+                "non_cacheable_reasons": {
+                  "-": 2,
+                  "crate-type": 1,
+                  "missing input": 2
+                },
+                "average_cache_read_hit_seconds": 0,
+                "average_cache_write_seconds": 0.059,
+                "average_compiler_seconds": 4.533,
+                "cache_errors": 0,
+                "cache_read_errors": 0,
+                "cache_write_errors": 0,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        },
+        {
+          "artifact": "cargo-host-warm",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "hit",
+              "trust_policy": "restore",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 87,
+              "target_cache_hit": true,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 7,
+                "compile_requests_executed": 2,
+                "cache_hits": 1,
+                "cache_misses": 1,
+                "hit_rate": 50,
+                "hit_counts": {
+                  "rust": 1
+                },
+                "miss_counts": {
+                  "rust": 1
+                },
+                "non_cacheable_calls": 5,
+                "non_cacheable_reasons": {
+                  "-": 2,
+                  "crate-type": 1,
+                  "missing input": 2
+                },
+                "average_cache_read_hit_seconds": 1.25,
+                "average_cache_write_seconds": 0,
+                "average_compiler_seconds": 7.677,
+                "cache_errors": 0,
+                "cache_read_errors": 0,
+                "cache_write_errors": 1,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        }
+      ],
+      "workspace_diagnostics": []
+    },
+    {
+      "repository": "boringcache/bingle_rust",
+      "databaseId": 34364365538,
+      "headSha": "25df067f9ab55c4c28f0868cd0637e0dcadbd1e5",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/boringcache/bingle_rust/actions/runs/34364365538",
+      "jobs": [
+        {
+          "databaseId": 102509163589,
+          "name": "unit",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34364365538/job/102509163589",
+          "whole_job_seconds": 422.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Checkout",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install Rust toolchain",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Prepare Cargo dependencies",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install cargo-nextest",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Build unit tests",
+              "conclusion": "success",
+              "seconds": 247.0
+            },
+            {
+              "name": "Run unit tests",
+              "conclusion": "success",
+              "seconds": 154.0
+            },
+            {
+              "name": "Publish test report",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Prepare Cargo dependencies",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Checkout",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:33:36.7845750Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (954ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:33:37.3904912Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (1.6s, 81.88 MB, 486 files)",
+            "2026-09-09T14:33:48.6404661Z Completed Restoring cache [cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (9.9s, 2.74 GB, 3.6K files)",
+            "2026-09-09T14:33:48.7713494Z [boringcache] Cargo source freshness restored: 678 unchanged, 0 changed/new; directories: 141 unchanged, 0 changed/new",
+            "2026-09-09T14:37:45.0220658Z     Finished `test` profile [unoptimized + debuginfo] target(s) in 3m 55s",
+            "2026-09-09T14:38:05.9660698Z     Finished `test` profile [unoptimized + debuginfo] target(s) in 17.43s",
+            "2026-09-09T14:39:26.5475683Z      Summary [  80.519s] 769 tests run: 769 passed, 2 skipped",
+            "2026-09-09T14:39:27.8365816Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (911ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:39:27.8717128Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (954ms, 81.88 MB, 486 files)",
+            "2026-09-09T14:40:18.9230979Z Completed Saving cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (52.0s, 8.51 GB, 8.0K files)",
+            "2026-09-09T14:40:20.6641596Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (754ms, 29.44 MB, 791 files)",
+            "2026-09-09T14:40:20.7541144Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (877ms, 81.88 MB, 486 files)"
+          ]
+        }
+      ],
+      "one_evidence": [],
+      "workspace_diagnostics": []
+    },
+    {
+      "repository": "boringcache/bingle_rust",
+      "databaseId": 34365480083,
+      "headSha": "4fbb34df189a8d78a902b718903aea82027cdcd5",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/boringcache/bingle_rust/actions/runs/34365480083",
+      "jobs": [
+        {
+          "databaseId": 102512970777,
+          "name": "Cargo host diagnostic writer (host)",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34365480083/job/102512970777",
+          "whole_job_seconds": 474.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 12.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 439.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Record native crate reuse",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:44:00.3788515Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (3.4s, 29.44 MB, 791 files)",
+            "2026-09-09T14:44:08.3963707Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (11.4s, 81.88 MB, 486 files)",
+            "2026-09-09T14:47:15.2138416Z Completed Restoring cache [cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (198.2s, 8.51 GB, 8.0K files)",
+            "2026-09-09T14:47:15.6985218Z [boringcache] Cargo source freshness restored: 677 unchanged, 2 changed/new; directories: 138 unchanged, 3 changed/new",
+            "2026-09-09T14:51:00.2708735Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 18.14s",
+            "2026-09-09T14:51:02.4326945Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (1.8s, 29.44 MB, 791 files)",
+            "2026-09-09T14:51:04.0193042Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (3.4s, 81.88 MB, 486 files)",
+            "2026-09-09T14:51:11.1904955Z Completed Saving cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (10.5s, 8.51 GB, 8.0K files)"
+          ]
+        },
+        {
+          "databaseId": 102515986133,
+          "name": "Cargo host diagnostic reader (host)",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34365480083/job/102515986133",
+          "whole_job_seconds": 94.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 4.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 58.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Record native crate reuse",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:51:58.8104204Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (2.8s, 29.44 MB, 791 files)",
+            "2026-09-09T14:52:01.3226723Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (5.3s, 81.88 MB, 486 files)",
+            "2026-09-09T14:52:37.5331256Z Completed Restoring cache [cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (41.5s, 8.51 GB, 8.0K files)",
+            "2026-09-09T14:52:37.8762495Z [boringcache] Cargo source freshness restored: 679 unchanged, 0 changed/new; directories: 141 unchanged, 0 changed/new",
+            "2026-09-09T14:52:50.0298790Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 9.30s"
+          ]
+        }
+      ],
+      "one_evidence": [
+        {
+          "artifact": "cargo-host-diagnostic-cold",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "hit",
+              "trust_policy": "publish",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 435.4,
+              "target_cache_hit": true,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 7,
+                "compile_requests_executed": 2,
+                "cache_hits": 0,
+                "cache_misses": 2,
+                "hit_rate": 0,
+                "miss_counts": {
+                  "rust": 2
+                },
+                "non_cacheable_calls": 5,
+                "non_cacheable_reasons": {
+                  "-": 2,
+                  "crate-type": 1,
+                  "missing input": 2
+                },
+                "average_cache_read_hit_seconds": 0,
+                "average_cache_write_seconds": 0.05,
+                "average_compiler_seconds": 4.527,
+                "cache_errors": 0,
+                "cache_read_errors": 0,
+                "cache_write_errors": 0,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        },
+        {
+          "artifact": "cargo-host-diagnostic-warm",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "hit",
+              "trust_policy": "restore",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 54.9,
+              "target_cache_hit": true,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 7,
+                "compile_requests_executed": 2,
+                "cache_hits": 2,
+                "cache_misses": 0,
+                "hit_rate": 100,
+                "hit_counts": {
+                  "rust": 2
+                },
+                "non_cacheable_calls": 5,
+                "non_cacheable_reasons": {
+                  "-": 2,
+                  "crate-type": 1,
+                  "missing input": 2
+                },
+                "average_cache_read_hit_seconds": 0.042,
+                "average_cache_write_seconds": 0,
+                "average_compiler_seconds": 0,
+                "cache_errors": 0,
+                "cache_read_errors": 0,
+                "cache_write_errors": 0,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        }
+      ],
+      "workspace_diagnostics": [
+        {
+          "artifact": "cargo-host-diagnostic-cold",
+          "workspace_targets": [
+            "all",
+            "bingle_cli",
+            "bingle_core",
+            "bingle_jsi",
+            "bingle_local",
+            "bingle_test",
+            "bingle_webserver",
+            "build_script_build",
+            "dtls_peer_worker_stage1",
+            "endpoint_available",
+            "flaky",
+            "integration",
+            "integration_blockchain",
+            "localnet_e2e_provisioner",
+            "ping_registered_node",
+            "post_on_delivery_fail_e2e",
+            "read_on_reconnect_e2e",
+            "sidewinder_mailbox_e2e",
+            "uniffi_bindgen",
+            "unit"
+          ],
+          "observed_workspace_cache_lookups": {
+            "bingle_core": {
+              "miss": 1
+            },
+            "bingle_test": {
+              "miss": 1
+            }
+          },
+          "write_error_lines": []
+        },
+        {
+          "artifact": "cargo-host-diagnostic-warm",
+          "workspace_targets": [
+            "all",
+            "bingle_cli",
+            "bingle_core",
+            "bingle_jsi",
+            "bingle_local",
+            "bingle_test",
+            "bingle_webserver",
+            "build_script_build",
+            "dtls_peer_worker_stage1",
+            "endpoint_available",
+            "flaky",
+            "integration",
+            "integration_blockchain",
+            "localnet_e2e_provisioner",
+            "ping_registered_node",
+            "post_on_delivery_fail_e2e",
+            "read_on_reconnect_e2e",
+            "sidewinder_mailbox_e2e",
+            "uniffi_bindgen",
+            "unit"
+          ],
+          "observed_workspace_cache_lookups": {
+            "bingle_core": {
+              "hit": 1
+            },
+            "bingle_test": {
+              "hit": 1
+            }
+          },
+          "write_error_lines": []
+        }
+      ]
+    },
+    {
+      "repository": "boringcache/bingle_rust",
+      "databaseId": 34366680001,
+      "headSha": "9499c7976f9b8005ff830a4cfd93a95228177bce",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/boringcache/bingle_rust/actions/runs/34366680001",
+      "jobs": [
+        {
+          "databaseId": 102517087813,
+          "name": "Cargo host diagnostic writer (host)",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34366680001/job/102517087813",
+          "whole_job_seconds": 301.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 10.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 268.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Record native crate reuse",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:54:48.3074630Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (1.6s, 29.44 MB, 791 files)",
+            "2026-09-09T14:54:48.4188657Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (1.7s, 81.88 MB, 486 files)",
+            "2026-09-09T14:58:59.2805754Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 4m 01s",
+            "2026-09-09T14:59:01.2053052Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (1.7s, 29.44 MB, 791 files)",
+            "2026-09-09T14:59:01.2436520Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (1.7s, 81.88 MB, 486 files)",
+            "2026-09-09T14:59:09.0757565Z Completed Saving cargo-localnet-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (9.5s, 2.74 GB, 3.9K files)"
+          ]
+        },
+        {
+          "databaseId": 102519019848,
+          "name": "Cargo host diagnostic reader (host)",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34366680001/job/102519019848",
+          "whole_job_seconds": 98.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 2.0
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Record source identity",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Run dtolnay/rust-toolchain@4cda84d5c5c54efe2404f9d843567869ab1699d4",
+              "conclusion": "success",
+              "seconds": 11.0
+            },
+            {
+              "name": "Run taiki-e/install-action@fcf5432d9f50d67e37ee6e29bdb7a224ff67b4a7",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install native prerequisites",
+              "conclusion": "success",
+              "seconds": 14.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 61.0
+            },
+            {
+              "name": "Verify the host executable",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Record native crate reuse",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Retain Cargo evidence",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run first-class Cargo",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T14:59:57.6247590Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (1.2s, 29.44 MB, 791 files)",
+            "2026-09-09T15:00:09.9700524Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (13.5s, 81.88 MB, 486 files)",
+            "2026-09-09T15:00:23.1124570Z Completed Restoring cache [cargo-localnet-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64] (26.7s, 2.74 GB, 3.9K files)",
+            "2026-09-09T15:00:23.3925178Z [boringcache] Cargo source freshness restored: 679 unchanged, 0 changed/new; directories: 141 unchanged, 0 changed/new",
+            "2026-09-09T15:00:52.1196673Z     Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.83s"
+          ]
+        }
+      ],
+      "one_evidence": [
+        {
+          "artifact": "cargo-host-diagnostic-cold",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "miss",
+              "trust_policy": "publish",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-localnet-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 263.8,
+              "target_cache_hit": false,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 1923,
+                "compile_requests_executed": 1846,
+                "cache_hits": 1837,
+                "cache_misses": 4,
+                "hit_rate": 99.8,
+                "hit_counts": {
+                  "assembler": 213,
+                  "c_cpp": 1358,
+                  "rust": 266
+                },
+                "miss_counts": {
+                  "c_cpp": 1,
+                  "rust": 3
+                },
+                "non_cacheable_calls": 73,
+                "non_cacheable_reasons": {
+                  "-": 4,
+                  "-E": 2,
+                  "crate-type": 59,
+                  "missing input": 8
+                },
+                "average_cache_read_hit_seconds": 0.362,
+                "average_cache_write_seconds": 0.033,
+                "average_compiler_seconds": 2.186,
+                "cache_errors": 1,
+                "cache_read_errors": 0,
+                "cache_write_errors": 0,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        },
+        {
+          "artifact": "cargo-host-diagnostic-warm",
+          "product_refs": {
+            "schema_version": 1,
+            "cli_version": "v1.30.1",
+            "action_ref": "boringcache/one@404b744a2053da4cf963f13f615f7fafe94f3cf7",
+            "action_sha": "404b744a2053da4cf963f13f615f7fafe94f3cf7"
+          },
+          "phases": [
+            {
+              "phase": "restore",
+              "mode": "cargo",
+              "cache_result": "hit",
+              "trust_policy": "restore",
+              "resolved_tags": [
+                "cargo-registry-cache-ubuntu-24-x86_64",
+                "cargo-registry-index-ubuntu-24-x86_64",
+                "cargo-localnet-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64",
+                "rust-ubuntu-24-x86_64"
+              ],
+              "elapsed_seconds": 56.4,
+              "target_cache_hit": true,
+              "native_tool": {
+                "schema_version": "native_tool_evidence.v1",
+                "tool": "sccache",
+                "stats_source": "sccache --show-stats",
+                "compile_requests": 7,
+                "compile_requests_executed": 2,
+                "cache_hits": 2,
+                "cache_misses": 0,
+                "hit_rate": 100,
+                "hit_counts": {
+                  "rust": 2
+                },
+                "non_cacheable_calls": 5,
+                "non_cacheable_reasons": {
+                  "-": 2,
+                  "crate-type": 1,
+                  "missing input": 2
+                },
+                "average_cache_read_hit_seconds": 0.046,
+                "average_cache_write_seconds": 0,
+                "average_compiler_seconds": 0,
+                "cache_errors": 0,
+                "cache_read_errors": 0,
+                "cache_write_errors": 0,
+                "cache_timeouts": 0
+              }
+            }
+          ]
+        }
+      ],
+      "workspace_diagnostics": [
+        {
+          "artifact": "cargo-host-diagnostic-cold",
+          "workspace_targets": [
+            "all",
+            "bingle_cli",
+            "bingle_core",
+            "bingle_jsi",
+            "bingle_local",
+            "bingle_test",
+            "bingle_webserver",
+            "build_script_build",
+            "dtls_peer_worker_stage1",
+            "endpoint_available",
+            "flaky",
+            "integration",
+            "integration_blockchain",
+            "localnet_e2e_provisioner",
+            "ping_registered_node",
+            "post_on_delivery_fail_e2e",
+            "read_on_reconnect_e2e",
+            "sidewinder_mailbox_e2e",
+            "uniffi_bindgen",
+            "unit"
+          ],
+          "observed_workspace_cache_lookups": {
+            "bingle_core": {
+              "miss": 1
+            },
+            "bingle_test": {
+              "miss": 1
+            }
+          },
+          "write_error_lines": []
+        },
+        {
+          "artifact": "cargo-host-diagnostic-warm",
+          "workspace_targets": [
+            "all",
+            "bingle_cli",
+            "bingle_core",
+            "bingle_jsi",
+            "bingle_local",
+            "bingle_test",
+            "bingle_webserver",
+            "build_script_build",
+            "dtls_peer_worker_stage1",
+            "endpoint_available",
+            "flaky",
+            "integration",
+            "integration_blockchain",
+            "localnet_e2e_provisioner",
+            "ping_registered_node",
+            "post_on_delivery_fail_e2e",
+            "read_on_reconnect_e2e",
+            "sidewinder_mailbox_e2e",
+            "uniffi_bindgen",
+            "unit"
+          ],
+          "observed_workspace_cache_lookups": {
+            "bingle_core": {
+              "hit": 1
+            },
+            "bingle_test": {
+              "hit": 1
+            }
+          },
+          "write_error_lines": []
+        }
+      ]
+    },
+    {
+      "repository": "boringcache/bingle_rust",
+      "databaseId": 34367558752,
+      "headSha": "9499c7976f9b8005ff830a4cfd93a95228177bce",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/boringcache/bingle_rust/actions/runs/34367558752",
+      "jobs": [
+        {
+          "databaseId": 102520112604,
+          "name": "unit",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/boringcache/bingle_rust/actions/runs/34367558752/job/102520112604",
+          "whole_job_seconds": 294.0,
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Checkout",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Install Rust toolchain",
+              "conclusion": "success",
+              "seconds": 9.0
+            },
+            {
+              "name": "Prepare Cargo dependencies",
+              "conclusion": "success",
+              "seconds": 3.0
+            },
+            {
+              "name": "Use source-based build timestamps",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Install cargo-nextest",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Build unit tests",
+              "conclusion": "success",
+              "seconds": 156.0
+            },
+            {
+              "name": "Run unit tests",
+              "conclusion": "success",
+              "seconds": 120.0
+            },
+            {
+              "name": "Publish test report",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Post Prepare Cargo dependencies",
+              "conclusion": "success",
+              "seconds": 1.0
+            },
+            {
+              "name": "Post Checkout",
+              "conclusion": "success",
+              "seconds": 0.0
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success",
+              "seconds": 0.0
+            }
+          ],
+          "cached_buildkit_vertices": 0,
+          "native_log_observations": [
+            "2026-09-09T15:02:22.6452452Z Completed Restoring cache [cargo-registry-index-ubuntu-24-x86_64] (1.0s, 29.44 MB, 791 files)",
+            "2026-09-09T15:02:22.9720446Z Completed Restoring cache [cargo-registry-cache-ubuntu-24-x86_64] (1.4s, 81.88 MB, 486 files)",
+            "2026-09-09T15:04:59.4622768Z     Finished `test` profile [unoptimized + debuginfo] target(s) in 2m 28s",
+            "2026-09-09T15:05:19.4183041Z     Finished `test` profile [unoptimized + debuginfo] target(s) in 16.74s",
+            "2026-09-09T15:06:39.5791123Z      Summary [  80.108s] 769 tests run: 769 passed, 2 skipped",
+            "2026-09-09T15:06:40.6105078Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (831ms, 81.88 MB, 486 files)",
+            "2026-09-09T15:06:40.7742675Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (997ms, 29.44 MB, 791 files)",
+            "2026-09-09T15:06:59.9613354Z Completed Saving cargo-unit-target-toolchain-1e2d3026a86fab33-graph-656913030171e3a2-ubuntu-24-x86_64 (20.2s, 5.77 GB, 4.5K files)",
+            "2026-09-09T15:07:01.3748551Z Completed Saving cargo-registry-cache-ubuntu-24-x86_64 (545ms, 81.88 MB, 486 files)",
+            "2026-09-09T15:07:01.4642732Z Completed Saving cargo-registry-index-ubuntu-24-x86_64 (594ms, 29.44 MB, 791 files)"
+          ]
+        }
+      ],
+      "one_evidence": [],
+      "workspace_diagnostics": []
+    }
+  ]
+}

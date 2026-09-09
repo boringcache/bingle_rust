@@ -84,3 +84,8 @@ These runs are excluded from the timing table above. Library attribution include
 | 5 | android / commit | GitHub | 311.258 | [job 102484425822](https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425822) |
 | 5 | host / commit | GitHub | 171.014 | [job 102484425830](https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425830) |
 | 5 | host / commit | BoringCache | 71.427 | [job 102484425870](https://github.com/boringcache/bingle_rust/actions/runs/34357094580/job/102484425870) |
+
+
+## Full integration follow-up
+
+The [Cargo/Docker integration report](boringcache-full-validation.md) records the subsequent first-class Cargo and relevant Docker validation. The compiler/archive results above remain a separate cohort; use the preserved `compiler-cache-validation` branch to reproduce that configuration.
